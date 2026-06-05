@@ -18,6 +18,44 @@ The final product should match or exceed the ease of use of Shopify Admin, while
 
 ---
 
+## Required Reference Files
+
+Before making any product, design, copywriting, UI, UX, branding, marketing, SEO, or documentation decision, check the available project reference files first.
+
+Primary reference files:
+
+- `docs/brand/brand-kit.html`
+- `docs/brand/anti-ai-writing-style.md`
+- `docs/discovery/`
+- `docs/decisions/`
+
+Use `docs/brand/brand-kit.html` as the brand source of truth.
+
+If the brand kit exists as HTML, inspect it for:
+- Brand personality
+- Visual mood
+- Logo usage
+- Color palette
+- Typography
+- Spacing
+- Border radius
+- Layout direction
+- Photography direction
+- Icon style
+- Motion style
+- Approved examples
+- Styles to avoid
+
+If the HTML contains CSS variables, design tokens, embedded styles, color values, font names, spacing rules, layout examples, or brand copy, extract and reuse them when planning or implementing UI.
+
+If a referenced file exists, use it as the source of truth.
+
+If a referenced file is missing, incomplete, or unclear, do not invent brand rules. Ask the user for the missing information or recommend a realistic temporary default and clearly label it as temporary.
+
+Do not overwrite or contradict the brand kit unless the user explicitly approves a change.
+
+---
+
 # 1. Primary Objective
 
 Build a complete, high-performance, production-ready e-commerce storefront, cloud POS system, admin dashboard, business management dashboard, analytics hub, and automation-ready backend for **Soglia Studio**.
@@ -781,6 +819,46 @@ For every major screen, provide:
 - Accessibility considerations.
 - Mobile/tablet/desktop behavior.
 
+## Brand Kit Usage
+
+When designing or implementing any storefront, admin, POS, dashboard, content, email, SEO, or marketing interface, follow `docs/brand/brand-kit.html`.
+
+Before creating or modifying UI, review the brand kit HTML and extract:
+
+- Brand personality
+- Visual mood
+- Logo usage rules
+- Color palette
+- Typography
+- Spacing style
+- Border radius style
+- Icon style
+- Photography direction
+- Motion style
+- Layout preferences
+- Do/don’t rules
+- Examples of approved visual references
+- Examples of visual styles to avoid
+
+Apply the brand consistently across:
+
+- Customer storefront
+- Admin dashboard
+- POS interface
+- Marketing pages
+- Campaign landing pages
+- Emails and notifications
+- SEO metadata where tone matters
+- Empty states
+- Error states
+- Loading states
+- Success states
+- Documentation screenshots or examples
+
+If the brand kit conflicts with generic UI library defaults, the brand kit wins.
+
+Avoid generic AI-generated design patterns unless they are explicitly approved by the brand kit.
+
 ---
 
 # 5. Required Database Planning
@@ -929,6 +1007,55 @@ When coding, use this structure:
 ---
 
 # 9. Important Rules
+
+## Writing Style and Anti-AI Copy Rules
+
+Before writing any customer-facing copy, marketing copy, SEO copy, onboarding text, admin microcopy, documentation, README content, PRD language, release notes, or GitHub summaries, review `docs/brand/anti-ai-writing-style.md`.
+
+Follow that file as the writing style source of truth.
+
+Apply it to:
+
+- Storefront copy
+- Product descriptions
+- Homepage sections
+- Collection descriptions
+- Checkout text
+- Empty states
+- Error messages
+- Success messages
+- Admin dashboard labels
+- POS interface copy
+- Email/SMS/WhatsApp notification drafts
+- SEO titles and descriptions
+- Blog/journal drafts
+- Documentation
+- PRD and planning documents
+- Pull request summaries
+- Commit explanations
+
+Avoid:
+
+- Generic AI phrasing
+- Overly polished corporate wording
+- Fake excitement
+- Empty marketing language
+- Clichés
+- Repetitive sentence structures
+- Overuse of words like “seamless,” “elevate,” “unlock,” “empower,” “robust,” “cutting-edge,” or similar generic AI-style language
+- Claims that are not supported by the product, brand kit, or user-approved decisions
+
+Prefer:
+
+- Clear language
+- Specific wording
+- Calm confidence
+- Useful detail
+- Natural human rhythm
+- Brand-appropriate restraint
+- Copy that sounds intentionally written, not generated
+
+If `docs/brand/anti-ai-writing-style.md` conflicts with generic writing habits, `docs/brand/anti-ai-writing-style.md` wins.
 
 - Do not invent business decisions without asking me first.
 - If I am unsure, recommend the most realistic option for an early-stage boutique flower business.

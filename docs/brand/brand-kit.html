@@ -1,0 +1,2539 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Soglia — Brand Kit (working)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;0,6..96,900;1,6..96,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Serif+Display:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Inconsolata:wght@400;500&family=Cinzel:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bone: oklch(97% 0.004 85);
+    --paper: oklch(94.5% 0.006 85);
+    --ink: oklch(18% 0.012 255);
+    --ink-soft: oklch(35% 0.012 255);
+    --rule: oklch(82% 0.008 85);
+    --accent: oklch(38% 0.06 25); /* placeholder oxblood, decided in phase 5 */
+    --max-w: 1180px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bone);
+    color: var(--ink);
+    font-family: "Manrope", system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.55;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: var(--max-w); margin: 0 auto; padding: 56px 48px 120px; }
+
+  /* Top meta strip */
+  .meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 0;
+    margin-bottom: 64px;
+  }
+  .meta b { font-weight: 500; color: var(--ink); }
+  .meta span { display: block; }
+  .meta .right { text-align: right; }
+
+  /* Hero / cover */
+  .cover {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid var(--ink);
+    margin-bottom: 80px;
+  }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .wordmark {
+    font-family: "Cormorant Garamond", "Times New Roman", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(120px, 18vw, 240px);
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    margin: 8px 0 32px;
+    color: var(--ink);
+  }
+  .wordmark .roman { font-style: normal; font-weight: 300; }
+  .lede {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    font-size: clamp(22px, 2.4vw, 32px);
+    line-height: 1.32;
+    letter-spacing: -0.005em;
+    max-width: 780px;
+    color: var(--ink);
+  }
+  .lede em { font-style: italic; color: var(--ink-soft); }
+
+  /* Section headers */
+  .section {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 56px;
+    padding: 56px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .section:first-of-type { border-top: 0; padding-top: 0; }
+  .section .label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    position: sticky;
+    top: 24px;
+    align-self: start;
+  }
+  .section .label .num {
+    display: block;
+    color: var(--ink);
+    font-size: 32px;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .section h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-size: clamp(36px, 4.2vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.012em;
+    margin: 0 0 28px;
+    color: var(--ink);
+  }
+  .section h2 em { font-style: italic; font-weight: 400; color: var(--ink-soft); }
+  .section p { margin: 0 0 16px; max-width: 60ch; }
+  .section p.lead { font-size: 17px; line-height: 1.55; color: var(--ink); }
+
+  /* Quote block */
+  .quote {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(24px, 2.6vw, 36px);
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+    margin: 28px 0 28px;
+    padding-left: 24px;
+    border-left: 1px solid var(--ink);
+    color: var(--ink);
+    max-width: 60ch;
+  }
+  .quote cite {
+    display: block;
+    margin-top: 14px;
+    font-style: normal;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* Index cards (key/value pairs) */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    margin: 32px 0 16px;
+    border: 1px solid var(--rule);
+  }
+  .card {
+    background: var(--bone);
+    padding: 24px 24px 28px;
+  }
+  .card .k {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .card .v {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+  .card .v em { font-style: italic; }
+
+  /* Dials */
+  .dials {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin: 32px 0 8px;
+    max-width: 720px;
+  }
+  .dial {
+    display: grid;
+    grid-template-columns: 130px 1fr 64px;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .dial:last-child { border-bottom: 0; }
+  .dial .name {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .dial .track {
+    position: relative;
+    height: 1px;
+    background: var(--rule);
+  }
+  .dial .track::before,
+  .dial .track::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    width: 1px;
+    height: 7px;
+    background: var(--ink);
+  }
+  .dial .track::before { left: 0; }
+  .dial .track::after { right: 0; }
+  .dial .marker {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 11px;
+    height: 11px;
+    background: var(--ink);
+    border-radius: 50%;
+  }
+  .dial .val {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    text-align: right;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .dial .ends {
+    grid-column: 2;
+    display: flex;
+    justify-content: space-between;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+
+  /* No-go list */
+  .nogo {
+    margin: 24px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--ink);
+  }
+  .nogo li {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .nogo .x {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 18px;
+    line-height: 1.4;
+  }
+  .nogo .what {
+    font-family: "Manrope", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .nogo .what span {
+    display: block;
+    font-weight: 400;
+    color: var(--ink-soft);
+    margin-top: 4px;
+    font-size: 13.5px;
+  }
+
+  /* Strategy ladder */
+  .ladder {
+    margin: 24px 0 8px;
+    border-top: 1px solid var(--ink);
+  }
+  .ladder-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .ladder-row .lk {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .ladder-row .lv {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.32;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+  .ladder-row .lv em { font-style: italic; color: var(--ink-soft); }
+  .ladder-row .lv .small {
+    font-family: "Manrope", sans-serif;
+    font-size: 14.5px;
+    line-height: 1.55;
+    margin-top: 8px;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+
+  /* Values list */
+  .values {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 8px;
+    counter-reset: v;
+    border-top: 1px solid var(--ink);
+  }
+  .values li {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 24px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+    counter-increment: v;
+  }
+  .values li::before {
+    content: counter(v, decimal-leading-zero);
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--ink-soft);
+    letter-spacing: -0.01em;
+  }
+  .values .vt {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .values .vd {
+    font-family: "Manrope", sans-serif;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+
+  /* Promise pair */
+  .promise-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin: 24px 0 8px;
+  }
+  .promise {
+    border-top: 1px solid var(--ink);
+    padding-top: 20px;
+  }
+  .promise .pk {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+  .promise .pv {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 1.32;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+  .promise .pv .small {
+    display: block;
+    font-family: "Manrope", sans-serif;
+    font-style: normal;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-top: 12px;
+    font-weight: 400;
+  }
+
+  @media (max-width: 760px) {
+    .ladder-row { grid-template-columns: 1fr; gap: 8px; }
+    .promise-pair { grid-template-columns: 1fr; }
+    .values li { grid-template-columns: 36px 1fr; gap: 16px; }
+  }
+
+  /* Voice samples */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 32px 0 8px;
+  }
+  .voice-card {
+    background: var(--bone);
+    padding: 28px 28px 32px;
+  }
+  .voice-card.full { grid-column: 1 / -1; }
+  .voice-card .vk {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+  .voice-card .vbody {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.32;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+  .voice-card .vbody em { font-style: italic; color: var(--ink-soft); }
+  .voice-card .vbody.tight {
+    font-family: "Manrope", sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+  .voice-card .vbody p { margin: 0 0 12px; max-width: none; }
+  .voice-card .vbody p:last-child { margin-bottom: 0; }
+
+  /* Word bank */
+  .word-bank {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 32px 0 8px;
+  }
+  .word-col { background: var(--bone); padding: 24px 24px 28px; }
+  .word-col h3 {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 16px;
+    font-weight: 500;
+  }
+  .word-col h3 .lead {
+    display: block;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 18px;
+    letter-spacing: -0.005em;
+    text-transform: none;
+    color: var(--ink);
+    margin-top: 4px;
+  }
+  .word-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .word-list li {
+    font-family: "Manrope", sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--ink);
+    padding: 4px 10px 5px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+  }
+  .word-list.avoid li {
+    color: var(--ink-soft);
+    text-decoration: line-through;
+    text-decoration-color: var(--ink-soft);
+    text-decoration-thickness: 1px;
+  }
+
+  /* Principles list */
+  .principles {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 8px;
+    counter-reset: pp;
+    border-top: 1px solid var(--ink);
+  }
+  .principles li {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 24px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+    counter-increment: pp;
+    align-items: baseline;
+  }
+  .principles li::before {
+    content: counter(pp, decimal-leading-zero);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+  }
+  .principles .pt {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .principles .pd {
+    font-family: "Manrope", sans-serif;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+
+  @media (max-width: 760px) {
+    .voice-grid { grid-template-columns: 1fr; }
+    .word-bank { grid-template-columns: 1fr; }
+    .principles li { grid-template-columns: 36px 1fr; gap: 16px; }
+  }
+
+  /* Territory spread */
+  .territory {
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    margin: 32px 0 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .territory > div {
+    padding: 28px 28px 32px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .territory > div:nth-child(2n) { border-right: 0; }
+  .territory > div:nth-last-child(-n+2) { border-bottom: 0; }
+  .territory .tk {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+  .territory .tv {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+  .territory .tv em { font-style: italic; color: var(--ink-soft); }
+
+  /* Magazine spread mock */
+  .spread {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    margin: 32px 0 8px;
+    box-shadow: 0 1px 0 var(--rule);
+    overflow: hidden;
+    position: relative;
+  }
+  .spread::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: var(--rule);
+  }
+  .spread .pg {
+    padding: 36px 36px 32px;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+  }
+  .spread .pg-top {
+    display: flex;
+    justify-content: space-between;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+  }
+  .spread h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 0.95;
+    letter-spacing: -0.018em;
+    margin: 0 0 12px;
+    color: var(--ink);
+  }
+  .spread h3 em { font-style: italic; font-weight: 300; }
+  .spread .deck {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 1.32;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    max-width: 38ch;
+  }
+  .spread .body {
+    font-family: "Manrope", sans-serif;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--ink);
+    column-count: 2;
+    column-gap: 18px;
+    flex: 1;
+  }
+  .spread .body p { margin: 0 0 10px; max-width: none; }
+  .spread .body p:first-child::first-letter {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 56px;
+    line-height: 0.85;
+    float: left;
+    padding: 4px 8px 0 0;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .spread .img {
+    background: linear-gradient(135deg, oklch(72% 0.02 60) 0%, oklch(60% 0.02 50) 60%, oklch(45% 0.02 40) 100%);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px;
+    color: var(--bone);
+    position: relative;
+    min-height: 280px;
+  }
+  .spread .img::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(135deg, transparent 0, transparent 14px, oklch(40% 0.015 50 / 0.18) 14px, oklch(40% 0.015 50 / 0.18) 15px);
+  }
+  .spread .img-meta {
+    position: relative;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bone);
+    opacity: 0.85;
+  }
+  .spread .img-cap {
+    position: relative;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.35;
+    color: var(--bone);
+    margin-top: 8px;
+    max-width: 32ch;
+  }
+  .spread .pg-bottom {
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 760px) {
+    .territory { grid-template-columns: 1fr; }
+    .territory > div { border-right: 0; }
+    .spread { grid-template-columns: 1fr; }
+    .spread::before { display: none; }
+    .spread .body { column-count: 1; }
+    .spread .pg { min-height: auto; }
+  }
+
+  /* Palette swatches */
+  .palettes { margin: 32px 0 8px; border-top: 1px solid var(--ink); }
+  .pal {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+  .pal .pl-name {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .pal .pl-name b {
+    display: block;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.05;
+    color: var(--ink);
+    text-transform: none;
+    letter-spacing: -0.005em;
+    margin-top: 4px;
+  }
+  .pal .pl-swatches {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-bottom: 14px;
+  }
+  .pal .sw {
+    aspect-ratio: 1.6 / 1;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .pal .sw .name { opacity: 0.78; }
+  .pal .sw .hex { font-size: 10px; opacity: 0.78; }
+  .pal .pl-note {
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+  .pal .pl-note em { color: var(--ink); font-style: normal; font-weight: 500; }
+
+  @media (max-width: 760px) {
+    .pal { grid-template-columns: 1fr; gap: 12px; }
+    .pal .pl-swatches { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Phase index (status of full kit) */
+  .phase-index {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 56px;
+    margin-top: 24px;
+  }
+  .phase-row {
+    display: grid;
+    grid-template-columns: 32px 1fr 80px;
+    align-items: baseline;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--rule);
+    gap: 12px;
+  }
+  .phase-row .pn,
+  .phase-row .ps {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .phase-row .pn { color: var(--ink); }
+  .phase-row .pt {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.003em;
+  }
+  .phase-row .ps { text-align: right; }
+  .phase-row[data-status="locked"] .ps { color: var(--accent); }
+  .phase-row[data-status="active"] .ps { color: var(--ink); }
+  .phase-row[data-status="active"] .pt { font-style: italic; }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  footer .right { text-align: right; }
+
+  @media (max-width: 760px) {
+    .wrap { padding: 32px 24px 80px; }
+    .section { grid-template-columns: 1fr; gap: 16px; padding: 40px 0; }
+    .section .label { position: static; }
+    .meta { grid-template-columns: 1fr; gap: 6px; }
+    .meta .right { text-align: left; }
+    .card-grid { grid-template-columns: 1fr; }
+    .dial { grid-template-columns: 100px 1fr 48px; gap: 12px; }
+    .phase-index { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr; }
+    footer .right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <!-- Meta strip -->
+  <div class="meta">
+    <span><b>Document</b> Brand Kit, Working</span>
+    <span style="text-align:center"><b>Phase</b> 06 / 15 — closed</span>
+    <span class="right"><b>Revised</b> May 2026</span>
+  </div>
+
+  <!-- Cover -->
+  <section class="cover" data-screen-label="01 Cover">
+    <div class="eyebrow">Soglia Studio — Brand identity, v1 complete</div>
+    <h1 class="wordmark"><span class="roman">S</span>oglia<span class="roman">.</span></h1>
+    <p class="lede">A floristry studio for the moments at the door. <em>Soglia</em> is Italian for <em>threshold</em>. The brand exists to mark beginnings, happy endings, and the harder middle moments with flowers chosen the way an editor chooses a cover.</p>
+  </section>
+
+  <!-- 01 The spine -->
+  <section class="section" data-screen-label="02 The spine">
+    <div class="label"><span class="num">01</span>The spine</div>
+    <div>
+      <h2>One promise. <em>Whatever Soglia brings will be the nicest thing in the room.</em></h2>
+      <p class="lead">Soglia is not known for a fixed look. It is known for the editor's eye. Each bouquet is the best version of its week. No two repeat. The brand identity holds tight precisely so the product can rotate freely. The frame stays still. The cover changes every issue.</p>
+      <p>This collapses six possible signatures into one. Composition discipline and material sourcing are the headline. Copy, packaging, and palette discipline reinforce. They never lead.</p>
+      <blockquote class="quote">
+        We wait for the bouquet you will bring because you would always choose the nicest flowers.
+        <cite>— Fatima's friends, paraphrased. The brand thesis in their words.</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 02 Audience -->
+  <section class="section" data-screen-label="03 Audience">
+    <div class="label"><span class="num">02</span>Audience</div>
+    <div>
+      <h2>Taste-driven gifters. <em>Defined by behavior, not demographics.</em></h2>
+      <p class="lead">People who plan the gesture and notice the materials. They write the card. They buy art, not posters. They would rather one good bouquet than a weekly grocery-store one. Age and bracket vary. The behavior is the through-line.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="k">Seed circle (cards 1–10)</div>
+          <div class="v">The Sharjah/Dubai <em>creative class</em> and the <em>romantic giver-types</em>. Fatima's existing network.</div>
+        </div>
+        <div class="card">
+          <div class="k">Outward ring (nominees)</div>
+          <div class="v">Young professionals with real taste. Inherited-taste households. People the seed circle vouches for.</div>
+        </div>
+        <div class="card">
+          <div class="k">Out of scope, 2026</div>
+          <div class="v">Corporate florist accounts. Wedding clients. Volume gift-shop customers.</div>
+        </div>
+        <div class="card">
+          <div class="k">Growth engine</div>
+          <div class="v">Closed-loop loyalty card. Each holder nominates one. <em>Customers as advertisers.</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 The first three seconds -->
+  <section class="section" data-screen-label="04 First three seconds">
+    <div class="label"><span class="num">03</span>The opening</div>
+    <div>
+      <h2>Three layers, in order. <em>Form, recognition, touch.</em></h2>
+      <p class="lead">The recipient feels three things in sequence in the first three seconds. The bouquet has to deliver all three with one object.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="k">01 — Stopped in their tracks</div>
+          <div class="v">A sculptural object lands. <em>Awe before recognition.</em> The form does the first work.</div>
+        </div>
+        <div class="card">
+          <div class="k">02 — Witnessed</div>
+          <div class="v">The card and the stem choice name the moment back. <em>This bouquet is for this person on this day.</em></div>
+        </div>
+        <div class="card">
+          <div class="k">03 — Pulled in</div>
+          <div class="v">Texture, paper, scent. They want to touch every part of the wrap before reading.</div>
+        </div>
+        <div class="card">
+          <div class="k">Resolution</div>
+          <div class="v"><em>The form stops them. The card and stems witness them. The materials hold them.</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Dials -->
+  <section class="section" data-screen-label="05 Dials">
+    <div class="label"><span class="num">04</span>Dials</div>
+    <div>
+      <h2>The personality, calibrated. <em>Cold. Sharp. Restrained. Bold. Editorial.</em></h2>
+      <p class="lead">The brand container is austere and structural. The flowers are the warm, organic counter. Editorial logic: the magazine is quiet so the photograph can speak.</p>
+
+      <div class="dials">
+        <div class="dial">
+          <div class="name">Luxury</div>
+          <div class="track"><div class="marker" style="left:85%"></div><div class="ends"><span>Honest</span><span>Couture</span></div></div>
+          <div class="val">85</div>
+        </div>
+        <div class="dial">
+          <div class="name">Warmth</div>
+          <div class="track"><div class="marker" style="left:15%"></div><div class="ends"><span>Cold</span><span>Soft</span></div></div>
+          <div class="val">15</div>
+        </div>
+        <div class="dial">
+          <div class="name">Minimalism</div>
+          <div class="track"><div class="marker" style="left:70%"></div><div class="ends"><span>Maximal</span><span>Spare</span></div></div>
+          <div class="val">70</div>
+        </div>
+        <div class="dial">
+          <div class="name">Softness</div>
+          <div class="track"><div class="marker" style="left:15%"></div><div class="ends"><span>Sharp</span><span>Yielding</span></div></div>
+          <div class="val">15</div>
+        </div>
+        <div class="dial">
+          <div class="name">Boldness</div>
+          <div class="track"><div class="marker" style="left:100%"></div><div class="ends"><span>Whisper</span><span>Statement</span></div></div>
+          <div class="val">100</div>
+        </div>
+        <div class="dial">
+          <div class="name">Editorial</div>
+          <div class="track"><div class="marker" style="left:90%"></div><div class="ends"><span>Retail</span><span>Magazine</span></div></div>
+          <div class="val">90</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 No-go -->
+  <section class="section" data-screen-label="06 No-go">
+    <div class="label"><span class="num">05</span>No-go list</div>
+    <div>
+      <h2>What Soglia must never be. <em>The exclusion list earns the inclusion list.</em></h2>
+      <p class="lead">Six aesthetic territories the brand actively rejects. If a layout, photograph, or sentence drifts toward any of them, it goes back.</p>
+
+      <ul class="nogo">
+        <li><div class="x">×</div><div class="what">Spa-and-wellness adjacent.<span>Pebbles, candle-coded type, words like "nourish" and "bloom." Soglia is a studio, not a retreat.</span></div></li>
+        <li><div class="x">×</div><div class="what">Bridal-shop saccharine.<span>Ribbon curls, cursive monograms, blush gradients. Forever-wedding tropes.</span></div></li>
+        <li><div class="x">×</div><div class="what">Beige-on-cream studio sameness.<span>Could pass for a coffee roaster, a yoga app, a real-estate brokerage. No POV, no risk.</span></div></li>
+        <li><div class="x">×</div><div class="what">Heritage-luxury cosplay.<span>Royal-warrant pretense, gold-foil overload, French-or-Italian words pasted on for prestige. Borrowed status.</span></div></li>
+        <li><div class="x">×</div><div class="what">Floral-design-school technical.<span>Latin names, watercolor washes, "master florist" diploma vibe. Knowledgeable but airless.</span></div></li>
+        <li><div class="x">×</div><div class="what">Cheap material in any visible surface.<span>No glitter cellophane, no plastic ribbon, no thin card stock. The wrap is the gift.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 06 Threshold motif -->
+  <section class="section" data-screen-label="07 Threshold motif">
+    <div class="label"><span class="num">06</span>Threshold motif</div>
+    <div>
+      <h2>Candidates for the mark. <em>Geometry, not iconography.</em></h2>
+      <p class="lead">Five threshold devices on the table. We choose between them in Phase 7. Logged from your reference: parallel curves and the line where one state becomes another.</p>
+      <div class="card-grid">
+        <div class="card">
+          <div class="k">A — Doorway / lintel</div>
+          <div class="v">Most literal. <em>Risk: on the nose.</em></div>
+        </div>
+        <div class="card">
+          <div class="k">B — Ripple / parallel curves</div>
+          <div class="v">From your reference. The line as event. <em>Risk: reads spa if palette drifts.</em></div>
+        </div>
+        <div class="card">
+          <div class="k">C — Frame / window</div>
+          <div class="v">The threshold as enclosure. Strong for editorial layout systems.</div>
+        </div>
+        <div class="card">
+          <div class="k">D — Stem as vertical line</div>
+          <div class="v">Native to the product. <em>Risk: too floral-shop.</em></div>
+        </div>
+        <div class="card">
+          <div class="k">E — Letterform-led</div>
+          <div class="v">Wordmark carries the threshold idea entirely through type. No symbol.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 Positioning -->
+  <section class="section" data-screen-label="09 Positioning">
+    <div class="label"><span class="num">07</span>Positioning</div>
+    <div>
+      <h2>The slot. <em>Editor's florist for the threshold, built on the relationship.</em></h2>
+      <p class="lead">Soglia is the studio that picks the cover. Each bouquet is curated like a magazine issue. The threshold thesis is why it matters. The loyalty mechanic is how it compounds. Three layers, in that order: <em>what we say</em>, <em>why it matters</em>, <em>how it grows</em>.</p>
+
+      <div class="ladder">
+        <div class="ladder-row">
+          <div class="lk">Headline — what we say</div>
+          <div class="lv">The editor's florist. <em>Each bouquet is chosen, not assembled.</em><div class="small">A stranger reading one sentence understands: this is a studio with a point of view, not a flower shop with inventory.</div></div>
+        </div>
+        <div class="ladder-row">
+          <div class="lk">Why — the thesis</div>
+          <div class="lv">Flowers are messengers at thresholds. <em>The bouquet names the moment, not the occasion category.</em><div class="small">A graduation bouquet is for that one graduate, not for graduations. The card writes to the person, not to the milestone.</div></div>
+        </div>
+        <div class="ladder-row">
+          <div class="lk">How — the engine</div>
+          <div class="lv">Repeat over reach. <em>The loyalty card is closed-loop. Each holder nominates one.</em><div class="small">The studio grows by recommendation, not by ad spend. Customers become advertisers because membership is something they earned.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 Vision & Mission -->
+  <section class="section" data-screen-label="10 Vision and mission">
+    <div class="label"><span class="num">08</span>Vision &amp; mission</div>
+    <div>
+      <h2>The long view, the daily work.</h2>
+      <p class="lead">Vision is what Soglia becomes if it works. Mission is what Soglia does to get there.</p>
+
+      <div class="promise-pair">
+        <div class="promise">
+          <div class="pk">Vision — ten years out</div>
+          <div class="pv">Soglia becomes the florist a generation of Gulf taste-makers grew up sending. <em>"I sent a Soglia"</em> reads as shorthand for a chosen bouquet, the way you'd say <em>"I sent a handwritten note."</em>
+            <span class="small">The metric: when someone names Soglia in conversation, the listener nods without needing it explained.</span>
+          </div>
+        </div>
+        <div class="promise">
+          <div class="pk">Mission — what we do, daily</div>
+          <div class="pv">Soglia composes bouquets the way an editor composes an issue. Each one is chosen for a specific person at a specific door, in premium materials, with a card written for them alone.
+            <span class="small">We work for taste-driven gifters who refuse the generic. Repeat orders are the metric. Reach is not.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 Values -->
+  <section class="section" data-screen-label="11 Values">
+    <div class="label"><span class="num">09</span>Values</div>
+    <div>
+      <h2>Six rules. <em>Pulled from your own house rules. Not invented.</em></h2>
+      <p class="lead">Each value is a decision the brand has already made. They sit upstream of every other choice, from a flower selection to a caption to a refund.</p>
+
+      <ol class="values">
+        <li><div><div class="vt">The eye decides.</div><div class="vd">No bouquet ships without a clear point of view. Strip the logo, you should still know it's Soglia. If it could be any florist's, it isn't ours.</div></div></li>
+        <li><div><div class="vt">The wrap is part of the gift.</div><div class="vd">Materials are non-negotiable on every order, including the smallest one. No plastic. No glitter cellophane. No thin card stock. Unwrapping is the second act of the bouquet.</div></div></li>
+        <li><div><div class="vt">The card is the message, not a label.</div><div class="vd">Every card is written for one specific person at one specific threshold. We push customers off default lines. "Congratulations" alone never ships.</div></div></li>
+        <li><div><div class="vt">The relationship is the product.</div><div class="vd">Repeat over reach. The loyalty card is closed-loop because intimacy is the growth engine. We measure 30 repeat customers, not 30,000 followers.</div></div></li>
+        <li><div><div class="vt">English and Arabic stay separate.</div><div class="vd">Each language gets its own clean version. Never mixed in one sentence or asset. Both deserve to be read on their own terms.</div></div></li>
+        <li><div><div class="vt">Trends are signal, not script.</div><div class="vd">We watch what's happening in New York, Sydney, Tokyo. We never repeat it. Awareness without imitation. Algorithm doesn't override POV.</div></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 10 Personality -->
+  <section class="section" data-screen-label="12 Personality">
+    <div class="label"><span class="num">10</span>Personality</div>
+    <div>
+      <h2>Who Soglia is in a room. <em>Creative-director, not concierge.</em></h2>
+      <p class="lead">If the brand were a person, this is how they'd hold themselves at a dinner. Opinionated. Specific. Quiet until they have something to say. Then decisive.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="k">Register</div>
+          <div class="v">Creative-director. <em>Professional, opinionated, sharp.</em> Never buddy-filler. Never "hey!" Never hedging.</div>
+        </div>
+        <div class="card">
+          <div class="k">Posture</div>
+          <div class="v">Decisive. <em>One recommendation, not ten options.</em> Soglia picks for you because picking is the service.</div>
+        </div>
+        <div class="card">
+          <div class="k">Emotional tone</div>
+          <div class="v">Witnessing, not warm-hugs. <em>The brand sees the recipient clearly.</em> Recognition is the gesture, not comfort.</div>
+        </div>
+        <div class="card">
+          <div class="k">Visual posture</div>
+          <div class="v">Structural, asymmetric, restrained. <em>One hero gesture per layout.</em> Generous negative space. The frame is quiet.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 Promises -->
+  <section class="section" data-screen-label="13 Promises">
+    <div class="label"><span class="num">11</span>The two promises</div>
+    <div>
+      <h2>What it feels like, what it actually is.</h2>
+      <p class="lead">Two layers. The emotional promise is what the recipient experiences. The practical promise is what Soglia delivers in the box. Both have to be true at once or the brand reads as marketing.</p>
+
+      <div class="promise-pair">
+        <div class="promise">
+          <div class="pk">Emotional promise — the feeling</div>
+          <div class="pv">Whatever Soglia brings will be the nicest thing in the room. And it will be unmistakably for me.
+Two clauses, on purpose. The first is taste. The second is recognition. Soglia delivers both in one object.
+</div>
+        </div>
+        <div class="promise">
+          <div class="pk">Practical promise — the deliverable</div>
+          <div class="pv">An editorial bouquet, chosen weekly by the studio, in premium paper and ribbon, with a card written for one specific person.
+            <span class="small">Delivered in Sharjah and Dubai. Ready, ready-subscription, DIY-subscription, and gathering-kit formats. The loyalty card grows the studio one nominee at a time.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 Voice principles -->
+  <section class="section" data-screen-label="14 Voice register">
+    <div class="label"><span class="num">12</span>Voice register</div>
+    <div>
+      <h2>Editorial outside, letter-writing inside. <em>Studio-led, not founder-led.</em></h2>
+      <p class="lead">Public surfaces (website, Instagram, proposals) wear the editorial register: decisive, named, restrained. Moments of direct contact (the card in the bouquet, the unboxing note, the loyalty letter) drop into letter-writing: intimate, slow, addressed to one person. Same studio. Two textures, one for the cover, one for the inside spread.</p>
+
+      <ol class="principles">
+        <li><div><div class="pt">The studio speaks, not Fatima.</div><div class="pd">Default voice is "Soglia" or "the studio." Fatima's name appears only in the long bio and the founder's letter. The brand reads as institutional even though it is solo.</div></div></li>
+        <li><div><div class="pt">Decisive over comprehensive.</div><div class="pd">One recommendation, not ten options. "This is the issue this week." Never "Here are six ideas." Picking is the service.</div></div></li>
+        <li><div><div class="pt">Witnessing, not warming.</div><div class="pd">Copy names the recipient and the moment. It does not console, comfort, or congratulate generically. Recognition is the gesture.</div></div></li>
+        <li><div><div class="pt">Short sentences for impact, longer for rhythm.</div><div class="pd">Mix the pace. Three-word sentences are allowed. Fragments are allowed. Never write every paragraph as a neat three-sentence block.</div></div></li>
+        <li><div><div class="pt">Active voice. No hedging. No buddy filler.</div><div class="pd">No "hey," "so," "just," "a little." No softeners that dilute the line. If a sentence sounds smart but does no work, cut it.</div></div></li>
+        <li><div><div class="pt">English and Arabic stay separate.</div><div class="pd">Each asset gets one clean language. Same content, two versions, never blended in a sentence. Both deserve to be read on their own terms.</div></div></li>
+        <li><div><div class="pt">No em dashes, no AI vocabulary, no fake completeness.</div><div class="pd">Replace dashes with periods or commas. No "delve," "intricate," "tapestry," "foster," "showcase," "unlock," "elevate," "vibrant," "dynamic," "crafted." No rule of three by default.</div></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 13 Word bank -->
+  <section class="section" data-screen-label="15 Word bank">
+    <div class="label"><span class="num">13</span>Word bank</div>
+    <div>
+      <h2>Use these. <em>Never these.</em></h2>
+      <p class="lead">A working dictionary, not a glossary. Use list signals the voice. Avoid list flags drift. The lists grow as the brand learns what it sounds like.</p>
+
+      <div class="word-bank">
+        <div class="word-col">
+          <h3>Use<span class="lead">Editorial, threshold, materials.</span></h3>
+          <ul class="word-list">
+            <li>threshold</li><li>door</li><li>doorway</li><li>cover</li><li>issue</li><li>composed</li><li>chosen</li><li>picked</li><li>named</li><li>studio</li><li>recipient</li><li>sender</li><li>card</li><li>paper</li><li>stem</li><li>ribbon</li><li>sculptural</li><li>structural</li><li>restrained</li><li>specific</li><li>this one</li><li>weekly</li><li>this season</li><li>this evening</li><li>by invitation</li><li>nominate</li>
+          </ul>
+        </div>
+        <div class="word-col">
+          <h3>Avoid<span class="lead">Wellness, stale luxury, AI vocabulary.</span></h3>
+          <ul class="word-list avoid">
+            <li>bloom</li><li>blossom</li><li>nurture</li><li>nourish</li><li>flourish</li><li>timeless</li><li>elegant</li><li>sophisticated</li><li>luxurious</li><li>crafted</li><li>artisanal</li><li>bespoke</li><li>journey</li><li>delve</li><li>intricate</li><li>tapestry</li><li>foster</li><li>showcase</li><li>unlock</li><li>elevate</li><li>vibrant</li><li>dynamic</li><li>seamless</li><li>passion meets purpose</li><li>congrats</li><li>best wishes</li><li>warmest regards</li><li>hey</li><li>cuties</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 Sample copy -->
+  <section class="section" data-screen-label="16 Sample copy">
+    <div class="label"><span class="num">14</span>Sample copy</div>
+    <div>
+      <h2>The voice in seven surfaces. <em>Read it out loud. If it sounds like every florist, it isn't ours.</em></h2>
+      <p class="lead">Working examples for each surface the brand will write on. These are not final. They show the texture and the seams between editorial register and letter-writing register.</p>
+
+      <div class="voice-grid">
+        <div class="voice-card">
+          <div class="vk">Website — hero headline</div>
+          <div class="vbody">A studio for the moments at the door.</div>
+        </div>
+        <div class="voice-card">
+          <div class="vk">Website — supporting line</div>
+          <div class="vbody">Soglia composes one bouquet a week, chosen the way an editor chooses a cover. Sharjah and Dubai. By invitation.</div>
+        </div>
+        <div class="voice-card">
+          <div class="vk">Instagram — caption, single bouquet</div>
+          <div class="vbody tight"><p><em>Issue 14.</em></p><p>Anthuriums. Dyed amaranthus. The last white orchid this week.</p><p>Sent at 6:42, Sharjah. For a graduation we won't name.</p></div>
+        </div>
+        <div class="voice-card">
+          <div class="vk">Instagram — caption, studio note</div>
+          <div class="vbody tight"><p>Loyalty card 03 of 10 has been claimed.</p><p>Seven seats remain. Each holder nominates one.</p></div>
+        </div>
+        <div class="voice-card full">
+          <div class="vk">Proposal — opening paragraph</div>
+          <div class="vbody tight"><p>Soglia is the studio that picks the cover. Each bouquet is composed, not assembled, for one person at one door. We work in Sharjah and Dubai with a closed loyalty card and four product lines: ready, ready-subscription, DIY-subscription, and gathering kit. We send when we have something worth sending. We don't run sales.</p></div>
+        </div>
+        <div class="voice-card">
+          <div class="vk">Card — new home</div>
+          <div class="vbody">For the morning the keys turn.<br/><em>— Soglia</em></div>
+        </div>
+        <div class="voice-card">
+          <div class="vk">Card — graduation</div>
+          <div class="vbody">Four years. One door. The flowers know.<br/><em>— Soglia</em></div>
+        </div>
+        <div class="voice-card">
+          <div class="vk">Bio — short, one line</div>
+          <div class="vbody">Soglia. The editor's florist for life's threshold moments. Sharjah, by invitation.</div>
+        </div>
+        <div class="voice-card">
+          <div class="vk">Bio — long, one paragraph</div>
+          <div class="vbody tight"><p>Soglia is a Sharjah floristry studio for the doorway moments of a life: graduations, new homes, weddings, farewells. We compose bouquets the way an editor composes an issue, chosen for one specific person at one specific threshold. Premium materials only. The card is written for the recipient by name. The studio grows by recommendation. The loyalty card is closed-loop, ten seats to start. Founded by Fatima in 2026.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 Visual territory -->
+  <section class="section" data-screen-label="17 Visual territory">
+    <div class="label"><span class="num">15</span>Visual territory</div>
+    <div>
+      <h2>Threshold Press. <em>Soglia is its own magazine.</em></h2>
+      <p class="lead">The brand world is high-fashion editorial publishing. Soglia is structured, presented, and read as a magazine the studio happens to publish. Each bouquet is an issue. The website is a masthead. The Instagram is a feed of spreads. The card is the editor's letter to the reader.</p>
+      <p>Important constraint. We borrow the <em>category</em>, never any single magazine's assets. No real masthead, no real palette, no real layout lifted. Soglia is Soglia's publication, not anyone else's. The cosplay-luxury rule still holds.</p>
+
+      <div class="territory">
+        <div><div class="tk">Mood</div><div class="tv">High-fashion editorial publishing. <em>Authority through restraint, not through ornament.</em> The page is the room. The bouquet is the cover star.</div></div>
+        <div><div class="tk">References (in spirit, not in form)</div><div class="tv">Editorial fashion magazines of the 1990s–2010s. The Gentlewoman. Apartamento. Cabana. Italian publishing tradition. Magazine kiosk culture as a reference category.</div></div>
+        <div><div class="tk">Communicates</div><div class="tv">Cultural authority. Taste leadership. <em>The bouquet has been chosen by an editor, not a salesperson.</em></div></div>
+        <div><div class="tk">Avoids</div><div class="tv">Blog-coded design. E-commerce product grids. Influencer-lifestyle aesthetics. <em>Any literal Vogue or named-magazine cue.</em></div></div>
+        <div><div class="tk">Color mood</div><div class="tv">Paper white, deep ink, one editorial counter-color. <em>Decided in Phase 5.</em> Nothing pastel. Nothing pre-existing fashion-house.</div></div>
+        <div><div class="tk">Type mood</div><div class="tv">A high-contrast Didone-feel display serif, a restrained sans body, a mono caption voice. <em>Three voices, three ranks.</em></div></div>
+        <div><div class="tk">Logo mood</div><div class="tv">Wordmark-led with masthead authority. Issue numbers, dates, edition numbers as supporting graphic vocabulary.</div></div>
+        <div><div class="tk">Imagery mood</div><div class="tv">Editorial single-subject photography. Side-light. Asymmetric. Full-bleed when warranted. Caption visible, dated, attributed.</div></div>
+        <div><div class="tk">Layout DNA</div><div class="tv">Magazine spreads. Strong margins. Drop caps. Captioned images. Folio numbers. Section dividers.</div></div>
+        <div><div class="tk">Risk</div><div class="tv">Reads as a media brand if photography weakens. <em>The flowers must do the work the magazine cover would have done.</em></div></div>
+      </div>
+
+      <h2 style="margin-top:64px">Working masthead spread. <em>Texture sample, not final layout.</em></h2>
+      <p class="lead">Quick study of how an issue page might read. The image plate is a placeholder for editorial photography. The drop cap, two-column body, and caption metadata are the signature layout DNA the territory implies.</p>
+
+      <div class="spread">
+        <div class="pg">
+          <div class="pg-top"><span>Soglia — Issue Fourteen</span><span>14</span></div>
+          <h3>The <em>last</em><br/>white orchid<br/>this week.</h3>
+          <div class="deck">A studio note from the editor. On choosing one stem the way one chooses a sentence.</div>
+          <div class="body"><p>Three orchids arrived from the supplier on Tuesday. Two of them found a home before noon. The third is on the bench, waiting for the right bouquet. The studio does not assemble. The studio chooses.</p><p>The last white orchid will travel with anthuriums and a single dyed amaranthus. The recipient has not been told. The card has been written for them by name. The wrap is paper, not plastic, on every order including this one.</p></div>
+          <div class="pg-bottom"><span>Sharjah — May 2026</span><span>p. 14</span></div>
+        </div>
+        <div class="pg" style="padding:0">
+          <div class="img">
+            <div class="img-meta">Plate 14 — Editorial photography goes here</div>
+            <div class="img-cap">A single-subject photograph in side light. The bouquet on a stone counter, not styled, not propped.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16 Palette comparison -->
+  <section class="section" data-screen-label="18 Palette comparison">
+    <div class="label"><span class="num">16</span>Palette — in review</div>
+    <div>
+      <h2>Five palettes, side by side. <em>The territory holds. The counter-color is the variable.</em></h2>
+      <p class="lead">Each palette starts from the same paper white and deep ink. The fifth column is what changes the brand's emotional register: warm or cool, dried or oxidized, organic or austere. Pick one. We'll refine it into primary, secondary, neutrals, and usage in the next pass.</p>
+      <p style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft); margin-top:24px">Logged note — packaging direction</p>
+      <p>You said: not wax stamps. Postcards, postal stickers, post-office vocabulary. <em>Filing under Phase 13 packaging.</em> The brand's physical-object cues will read post-office, not heritage-seal. Stamps as in postage stamps, not wax. Stickers, postcard cardstock, postmark imprints, address-block typography. This is a real territory shift. It means the sticker-and-postcard system becomes a designed surface in its own right, not an afterthought.</p>
+
+      <div class="palettes">
+
+        <div class="pal">
+          <div class="pl-name">A<b>Ink &amp; Ember</b></div>
+          <div>
+            <div class="pl-swatches">
+              <div class="sw" style="background:#F3EFE7; color:#1B1A18"><span class="name">Paper</span><span class="hex">#F3EFE7</span></div>
+              <div class="sw" style="background:#1B1A18; color:#F3EFE7"><span class="name">Ink</span><span class="hex">#1B1A18</span></div>
+              <div class="sw" style="background:#5A1A1A; color:#F3EFE7"><span class="name">Oxblood</span><span class="hex">#5A1A1A</span></div>
+              <div class="sw" style="background:#A89C8A; color:#1B1A18"><span class="name">Stone</span><span class="hex">#A89C8A</span></div>
+            </div>
+            <div class="pl-note"><em>Communicates.</em> Cultural authority. Dried-petal heat. Editorial restraint with a single emotional charge. <em>Risk.</em> Tips masculine if oxblood is overused on flat surfaces. <em>Lives in.</em> Page numbers, ribbon, postmark imprint, drop caps, sticker accent.</div>
+          </div>
+        </div>
+
+        <div class="pal">
+          <div class="pl-name">B<b>Ink &amp; Iron</b></div>
+          <div>
+            <div class="pl-swatches">
+              <div class="sw" style="background:#F3EFE7; color:#15171D"><span class="name">Paper</span><span class="hex">#F3EFE7</span></div>
+              <div class="sw" style="background:#15171D; color:#F3EFE7"><span class="name">Ink</span><span class="hex">#15171D</span></div>
+              <div class="sw" style="background:#1F3A6B; color:#F3EFE7"><span class="name">Cobalt</span><span class="hex">#1F3A6B</span></div>
+              <div class="sw" style="background:#9DA1AA; color:#15171D"><span class="name">Stone</span><span class="hex">#9DA1AA</span></div>
+            </div>
+            <div class="pl-note"><em>Communicates.</em> Gallery-cold. Contemporary art. Intellectual. <em>Risk.</em> Reads tech-publication if cobalt brightens. <em>Lives in.</em> Same vocabulary, sharper edge. The deep blue softens nothing.</div>
+          </div>
+        </div>
+
+        <div class="pal">
+          <div class="pl-name">C<b>Ink &amp; Olive</b></div>
+          <div>
+            <div class="pl-swatches">
+              <div class="sw" style="background:#F3EFE7; color:#1A1B17"><span class="name">Paper</span><span class="hex">#F3EFE7</span></div>
+              <div class="sw" style="background:#1A1B17; color:#F3EFE7"><span class="name">Ink</span><span class="hex">#1A1B17</span></div>
+              <div class="sw" style="background:#3F4A2A; color:#F3EFE7"><span class="name">Moss</span><span class="hex">#3F4A2A</span></div>
+              <div class="sw" style="background:#A2A28F; color:#1A1B17"><span class="name">Stone</span><span class="hex">#A2A28F</span></div>
+            </div>
+            <div class="pl-note"><em>Communicates.</em> Studio quiet. Organic without being floral. Grounded. <em>Risk.</em> Garden-shop if the green warms toward sage. <em>Lives in.</em> Stamp ink, sticker base, page edge.</div>
+          </div>
+        </div>
+
+        <div class="pal">
+          <div class="pl-name">D<b>Sand &amp; Ink</b></div>
+          <div>
+            <div class="pl-swatches">
+              <div class="sw" style="background:#EDE3D2; color:#1B1916"><span class="name">Bone</span><span class="hex">#EDE3D2</span></div>
+              <div class="sw" style="background:#1B1916; color:#EDE3D2"><span class="name">Ink</span><span class="hex">#1B1916</span></div>
+              <div class="sw" style="background:#9C4A2A; color:#EDE3D2"><span class="name">Clay</span><span class="hex">#9C4A2A</span></div>
+              <div class="sw" style="background:#C2A687; color:#1B1916"><span class="name">Sand</span><span class="hex">#C2A687</span></div>
+            </div>
+            <div class="pl-note"><em>Communicates.</em> Southern light. Italian villa cue. Warmer editorial. <em>Risk.</em> Drifts toward beige-on-cream sameness, the exact no-go from your file. Use only if held very tightly. <em>Lives in.</em> Letter paper, sticker base, postcard backs.</div>
+          </div>
+        </div>
+
+        <div class="pal">
+          <div class="pl-name">E<b>Three Inks</b></div>
+          <div>
+            <div class="pl-swatches">
+              <div class="sw" style="background:#F3EFE7; color:#0E0E0E"><span class="name">Paper</span><span class="hex">#F3EFE7</span></div>
+              <div class="sw" style="background:#0E0E0E; color:#F3EFE7"><span class="name">True ink</span><span class="hex">#0E0E0E</span></div>
+              <div class="sw" style="background:#16243B; color:#F3EFE7"><span class="name">Ink-blue</span><span class="hex">#16243B</span></div>
+              <div class="sw" style="background:#241A12; color:#F3EFE7"><span class="name">Ink-brown</span><span class="hex">#241A12</span></div>
+            </div>
+            <div class="pl-note"><em>Communicates.</em> Total restraint. Photography carries all the color. The brand is colorless on purpose. <em>Risk.</em> Under-designed without strong editorial photography from day one. <em>Lives in.</em> Type, type, type. Photography does the rest.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 17 A vs B in application -->
+  <section class="section" data-screen-label="19 A vs B">
+    <div class="label"><span class="num">17</span>A or B — in application</div>
+    <div>
+      <h2>The same spread, two counter-colors. <em>Read them as objects, not as swatches.</em></h2>
+      <p class="lead">Swatches lie. Editorial colors only declare themselves once they're holding type, ink, and a photograph at the same time. Both spreads use identical layout, hierarchy, and copy. The variable is one color: oxblood on the left, cobalt on the right. Read them out loud. Look at where the eye lands.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:32px">
+
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:12px">Option A — Ink &amp; Ember <span style="color:#5A1A1A">●</span></div>
+          <div style="background:#F3EFE7; border:1px solid var(--rule); padding:28px; min-height:420px; display:flex; flex-direction:column">
+            <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A; margin-bottom:24px"><span>Soglia — Issue 14</span><span>p. 14</span></div>
+            <div style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:42px; line-height:0.98; letter-spacing:-0.018em; color:#1B1A18; margin-bottom:14px">The <em style="font-style:italic;font-weight:300">last</em><br>white orchid<br>this week.</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; line-height:1.35; color:#5A1A1A; margin-bottom:18px; max-width:32ch">A studio note from the editor. On choosing one stem the way one chooses a sentence.</div>
+            <div style="font-family:'Manrope',sans-serif; font-size:12.5px; line-height:1.65; color:#1B1A18; flex:1">Three orchids arrived from the supplier on Tuesday. Two of them found a home before noon. The third is on the bench, waiting for the right bouquet. The studio does not assemble. The studio chooses.</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:18px; padding-top:14px; border-top:1px solid #5A1A1A; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#1B1A18"><span>Sharjah · May 2026</span><span style="display:inline-block; padding:3px 8px; border:1px solid #5A1A1A; color:#5A1A1A">Postmark 14</span></div>
+          </div>
+          <div style="font-family:'Manrope',sans-serif; font-size:13px; line-height:1.5; color:var(--ink-soft); margin-top:12px; max-width:42ch"><b style="color:var(--ink); font-weight:500">Reads as.</b> Heat. Dried-petal warmth. The page has a pulse.</div>
+        </div>
+
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:12px">Option B — Ink &amp; Iron <span style="color:#1F3A6B">●</span></div>
+          <div style="background:#F3EFE7; border:1px solid var(--rule); padding:28px; min-height:420px; display:flex; flex-direction:column">
+            <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#1F3A6B; margin-bottom:24px"><span>Soglia — Issue 14</span><span>p. 14</span></div>
+            <div style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:42px; line-height:0.98; letter-spacing:-0.018em; color:#15171D; margin-bottom:14px">The <em style="font-style:italic;font-weight:300">last</em><br>white orchid<br>this week.</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; line-height:1.35; color:#1F3A6B; margin-bottom:18px; max-width:32ch">A studio note from the editor. On choosing one stem the way one chooses a sentence.</div>
+            <div style="font-family:'Manrope',sans-serif; font-size:12.5px; line-height:1.65; color:#15171D; flex:1">Three orchids arrived from the supplier on Tuesday. Two of them found a home before noon. The third is on the bench, waiting for the right bouquet. The studio does not assemble. The studio chooses.</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:18px; padding-top:14px; border-top:1px solid #1F3A6B; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#15171D"><span>Sharjah · May 2026</span><span style="display:inline-block; padding:3px 8px; border:1px solid #1F3A6B; color:#1F3A6B">Postmark 14</span></div>
+          </div>
+          <div style="font-family:'Manrope',sans-serif; font-size:13px; line-height:1.5; color:var(--ink-soft); margin-top:12px; max-width:42ch"><b style="color:var(--ink); font-weight:500">Reads as.</b> Cool. Gallery air. The page is composed, not warm.</div>
+        </div>
+
+      </div>
+
+      <h2 style="margin-top:64px">Postcard test, both palettes. <em>Where the choice actually lives.</em></h2>
+      <p class="lead">Since the brand world is postcards and postage stickers, here is the same loyalty postcard in both palettes. Look at the postage block. Look at the address rules. Decide which one you want sitting in someone's hand.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:32px">
+
+        <div>
+          <div style="background:#F3EFE7; border:1px solid var(--rule); aspect-ratio:5/3; padding:22px; display:grid; grid-template-columns:1fr 110px; gap:20px; position:relative">
+            <div style="display:flex; flex-direction:column; justify-content:space-between">
+              <div>
+                <div style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:34px; line-height:1; letter-spacing:-0.02em; color:#1B1A18">Soglia</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A; margin-top:4px">Loyalty card 03 / 10</div>
+              </div>
+              <div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#1B1A18; opacity:0.6">To.</div>
+                <div style="border-bottom:1px solid #1B1A18; height:13px; margin-top:6px"></div>
+                <div style="border-bottom:1px solid #1B1A18; height:13px; margin-top:8px"></div>
+                <div style="border-bottom:1px solid #1B1A18; height:13px; margin-top:8px"></div>
+              </div>
+            </div>
+            <div>
+              <div style="border:1.5px solid #5A1A1A; padding:10px 8px; aspect-ratio:0.78/1; display:flex; flex-direction:column; justify-content:space-between; align-items:center; text-align:center">
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A">Soglia<br>Studio</div>
+                <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:32px; line-height:1; color:#5A1A1A">14</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:7.5px; letter-spacing:0.16em; text-transform:uppercase; color:#5A1A1A">Sharjah<br>2026</div>
+              </div>
+            </div>
+          </div>
+          <div style="font-family:'Manrope',sans-serif; font-size:13px; color:var(--ink-soft); margin-top:10px">A. The stamp warms the card.</div>
+        </div>
+
+        <div>
+          <div style="background:#F3EFE7; border:1px solid var(--rule); aspect-ratio:5/3; padding:22px; display:grid; grid-template-columns:1fr 110px; gap:20px; position:relative">
+            <div style="display:flex; flex-direction:column; justify-content:space-between">
+              <div>
+                <div style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:34px; line-height:1; letter-spacing:-0.02em; color:#15171D">Soglia</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#1F3A6B; margin-top:4px">Loyalty card 03 / 10</div>
+              </div>
+              <div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:#15171D; opacity:0.6">To.</div>
+                <div style="border-bottom:1px solid #15171D; height:13px; margin-top:6px"></div>
+                <div style="border-bottom:1px solid #15171D; height:13px; margin-top:8px"></div>
+                <div style="border-bottom:1px solid #15171D; height:13px; margin-top:8px"></div>
+              </div>
+            </div>
+            <div>
+              <div style="border:1.5px solid #1F3A6B; padding:10px 8px; aspect-ratio:0.78/1; display:flex; flex-direction:column; justify-content:space-between; align-items:center; text-align:center">
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.18em; text-transform:uppercase; color:#1F3A6B">Soglia<br>Studio</div>
+                <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:32px; line-height:1; color:#1F3A6B">14</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:7.5px; letter-spacing:0.16em; text-transform:uppercase; color:#1F3A6B">Sharjah<br>2026</div>
+              </div>
+            </div>
+          </div>
+          <div style="font-family:'Manrope',sans-serif; font-size:13px; color:var(--ink-soft); margin-top:10px">B. The stamp cools the card. The whole object reads quieter.</div>
+        </div>
+
+      </div>
+
+      <p style="margin-top:36px; max-width:60ch"><em>Trade-off note.</em> Cobalt is the safer aesthetic choice. It reads gallery, contemporary, intentional. Oxblood is the more emotionally charged choice. It reads heat, ritual, dried-petal. Both fit the territory. The question is whether you want the brand to feel quiet or to feel <em>charged.</em></p>
+    </div>
+  </section>
+
+  <!-- 18 Palette locked -->
+  <section class="section" data-screen-label="20 Palette locked">
+    <div class="label"><span class="num">18</span>Palette — locked</div>
+    <div>
+      <h2>Ink &amp; Ember, with cobalt as the founder's private mark. <em>Public brand reads red. Private gestures read blue.</em></h2>
+      <p class="lead">A clean split, not a watered-down hybrid. The studio's public surfaces use oxblood as the single counter-color. Cobalt does not appear in any customer-facing surface by default. It lives in two places only: the founder's letter (inside the box, hand-numbered) and Fatima's signature. That is the whole rule.</p>
+
+      <div class="palettes" style="margin-top:32px">
+        <div class="pal">
+          <div class="pl-name">Public<b>Ink &amp; Ember</b></div>
+          <div>
+            <div class="pl-swatches" style="grid-template-columns:repeat(5,1fr)">
+              <div class="sw" style="background:#F3EFE7; color:#1B1A18"><span class="name">Paper</span><span class="hex">#F3EFE7</span></div>
+              <div class="sw" style="background:#1B1A18; color:#F3EFE7"><span class="name">Ink</span><span class="hex">#1B1A18</span></div>
+              <div class="sw" style="background:#5A1A1A; color:#F3EFE7"><span class="name">Oxblood</span><span class="hex">#5A1A1A</span></div>
+              <div class="sw" style="background:#A89C8A; color:#1B1A18"><span class="name">Stone</span><span class="hex">#A89C8A</span></div>
+              <div class="sw" style="background:#E8E1D2; color:#1B1A18"><span class="name">Bone</span><span class="hex">#E8E1D2</span></div>
+            </div>
+            <div class="pl-note"><em>Where each color lives.</em> Paper is every background. Ink is every body type. Oxblood is the one color that ever does emotional work — page numbers, ribbon, the postage stamp, drop caps, sticker accents, the loyalty card seal. Stone is the secondary neutral for dividers and rules. Bone is the warmer alt-paper for cards and inserts.</div>
+          </div>
+        </div>
+
+        <div class="pal">
+          <div class="pl-name">Private<b>Cobalt mark</b></div>
+          <div>
+            <div class="pl-swatches" style="grid-template-columns:repeat(2,1fr)">
+              <div class="sw" style="background:#1F3A6B; color:#F3EFE7"><span class="name">Cobalt</span><span class="hex">#1F3A6B</span></div>
+              <div class="sw" style="background:#F3EFE7; color:#1F3A6B; border:1px dashed #1F3A6B"><span class="name">F's signature</span><span class="hex">Hand</span></div>
+            </div>
+            <div class="pl-note"><em>Where it lives.</em> Founder's letter inside the gathering kit. Fatima's printed signature on personal correspondence. The cobalt-ink stamp on the back of a hand-addressed envelope. <em>Not in.</em> The Instagram feed. The website. Product photography. Postage stickers. Any surface that reads as the studio speaking, rather than Fatima speaking.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:48px">Hierarchy. <em>What gets which weight.</em></h2>
+      <ol class="principles">
+        <li><div><div class="pt">Paper is the field. Ink is the voice.</div><div class="pd">Every layout starts with paper as background and ink as type. If you reach for any other color first, the layout is already wrong.</div></div></li>
+        <li><div><div class="pt">Oxblood is the single accent. Use it once per surface.</div><div class="pd">One oxblood gesture per layout: the page number, the rule, the stamp, the drop cap. Never two. The constraint is the discipline.</div></div></li>
+        <li><div><div class="pt">Stone and Bone are quiet. They never lead.</div><div class="pd">Stone is for fine rules and metadata-row backgrounds. Bone is for cards and inserts that need to feel warmer than paper. Neither carries headline type.</div></div></li>
+        <li><div><div class="pt">Cobalt is private. Three appearances, total.</div><div class="pd">The founder's letter, the signature, and the cobalt stamp on the envelope. The customer sees cobalt only when reading something written by Fatima as a person, not by the studio as an institution.</div></div></li>
+        <li><div><div class="pt">Photography is allowed any color the flowers carry.</div><div class="pd">The image plate is the one place the brand is permitted to be polychromatic. The frame, type, and chrome around the image stays restrained. The flowers do the color work.</div></div></li>
+      </ol>
+
+      <h2 style="margin-top:48px">Don'ts. <em>Hard rules, not preferences.</em></h2>
+      <ul style="list-style:none; padding:0; margin:24px 0 8px">
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Manrope',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't use oxblood and cobalt in the same layout. They do not coexist. Picking one means committing to its register for that surface.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Manrope',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't tint photography toward oxblood. The image stays unfiltered. The studio is editorial, not Instagram-coded.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Manrope',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't use oxblood as a fill on large surfaces (a full website background, a full page wash). Oxblood reads as ink, line, mark. Never as a wash.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Manrope',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't introduce a fourth color. No green, gold, pink, beige variant. The five-plus-one system is the system.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); font-family:'Manrope',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't apply cobalt to anything customer-facing as a brand color. It is the founder's mark, not the studio's.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 19 Type systems on a real headline -->
+  <section class="section" data-screen-label="21 Type systems">
+    <div class="label"><span class="num">19</span>Typography \u2014 in review</div>
+    <div>
+      <h2>Five type systems on the same headline. <em>Read them as a magazine cover, not as font samples.</em></h2>
+      <p class="lead">Same words. Same hierarchy. Same color (oxblood on paper). Only the typography changes. Notice where the eye lands. Notice which one feels like Soglia and which one feels like someone else's brand.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:32px">
+
+        <!-- A. Editorial classic -->
+        <div style="background:#F3EFE7; padding:36px 32px 32px; min-height:380px; display:flex; flex-direction:column">
+          <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">
+            <span>System A \u00b7 Editorial classic</span><span>Issue 14</span>
+          </div>
+          <div style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:64px; line-height:0.92; letter-spacing:-0.02em; color:#1B1A18; margin-top:auto">
+            The <em style="font-style:italic;font-weight:300">last</em><br>white orchid<br>this week.
+          </div>
+          <div style="font-family:'Manrope',sans-serif; font-size:13px; line-height:1.6; color:#1B1A18; margin-top:18px; max-width:32ch">A studio note from the editor. On choosing one stem the way one chooses a sentence.</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A; margin-top:18px; border-top:1px solid #5A1A1A; padding-top:10px">Cormorant \u00b7 Manrope \u00b7 IBM Plex Mono</div>
+        </div>
+
+        <!-- B. High-fashion Didone -->
+        <div style="background:#F3EFE7; padding:36px 32px 32px; min-height:380px; display:flex; flex-direction:column">
+          <div style="display:flex; justify-content:space-between; font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#5A1A1A">
+            <span>System B \u00b7 High-fashion Didone</span><span>Issue 14</span>
+          </div>
+          <div style="font-family:'Bodoni Moda',serif; font-weight:700; font-size:62px; line-height:0.95; letter-spacing:-0.025em; color:#1B1A18; margin-top:auto">
+            The <span style="font-style:italic;font-weight:400">last</span><br>white orchid<br>this week.
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-weight:400; font-size:13px; line-height:1.6; color:#1B1A18; margin-top:18px; max-width:32ch">A studio note from the editor. On choosing one stem the way one chooses a sentence.</div>
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A; margin-top:18px; border-top:1px solid #5A1A1A; padding-top:10px">Bodoni Moda \u00b7 Inter \u00b7 Inconsolata</div>
+        </div>
+
+        <!-- C. Sharp editorial -->
+        <div style="background:#F3EFE7; padding:36px 32px 32px; min-height:380px; display:flex; flex-direction:column">
+          <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A">
+            <span>System C \u00b7 Sharp editorial</span><span>Issue 14</span>
+          </div>
+          <div style="font-family:'DM Serif Display',serif; font-weight:400; font-size:66px; line-height:0.94; letter-spacing:-0.025em; color:#1B1A18; margin-top:auto">
+            The <span style="font-style:italic">last</span><br>white orchid<br>this week.
+          </div>
+          <div style="font-family:'Manrope',sans-serif; font-weight:400; font-size:13px; line-height:1.6; color:#1B1A18; margin-top:18px; max-width:32ch">A studio note from the editor. On choosing one stem the way one chooses a sentence.</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A; margin-top:18px; border-top:1px solid #5A1A1A; padding-top:10px">DM Serif Display \u00b7 Manrope \u00b7 IBM Plex Mono</div>
+        </div>
+
+        <!-- D. Italian publisher -->
+        <div style="background:#F3EFE7; padding:36px 32px 32px; min-height:380px; display:flex; flex-direction:column">
+          <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A">
+            <span>System D \u00b7 Italian publisher</span><span>Issue 14</span>
+          </div>
+          <div style="font-family:'Cinzel',serif; font-weight:400; font-size:30px; line-height:1.2; letter-spacing:0.02em; color:#5A1A1A; margin-top:auto; text-transform:uppercase">Soglia \u00b7 No. XIV</div>
+          <div style="font-family:'EB Garamond',serif; font-weight:400; font-size:54px; line-height:1; letter-spacing:-0.01em; color:#1B1A18; margin-top:8px">
+            The <em style="font-style:italic">last</em><br>white orchid<br>this week.
+          </div>
+          <div style="font-family:'EB Garamond',serif; font-style:italic; font-size:14px; line-height:1.55; color:#1B1A18; margin-top:14px; max-width:32ch">A studio note from the editor. On choosing one stem the way one chooses a sentence.</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A; margin-top:14px; border-top:1px solid #5A1A1A; padding-top:10px">Cinzel \u00b7 EB Garamond \u00b7 IBM Plex Mono</div>
+        </div>
+
+        <!-- E. Three voices, modern -->
+        <div style="background:#F3EFE7; padding:36px 32px 32px; min-height:380px; display:flex; flex-direction:column; grid-column:1/-1">
+          <div style="display:flex; justify-content:space-between; font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#5A1A1A">
+            <span>System E \u00b7 Three voices, modern</span><span>Issue 14</span>
+          </div>
+          <div style="display:grid; grid-template-columns:2fr 1fr; gap:32px; margin-top:auto">
+            <div style="font-family:'Playfair Display',serif; font-weight:900; font-size:84px; line-height:0.9; letter-spacing:-0.03em; color:#1B1A18">
+              The <span style="font-style:italic;font-weight:400">last</span><br>white orchid<br>this week.
+            </div>
+            <div style="display:flex; flex-direction:column; justify-content:flex-end; gap:14px">
+              <div style="font-family:'Inter',sans-serif; font-weight:500; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A; padding-bottom:10px; border-bottom:1px solid #5A1A1A">Marginalia</div>
+              <div style="font-family:'Inter',sans-serif; font-weight:400; font-size:13.5px; line-height:1.6; color:#1B1A18">A studio note from the editor. On choosing one stem the way one chooses a sentence.</div>
+            </div>
+          </div>
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A; margin-top:18px; border-top:1px solid #5A1A1A; padding-top:10px">Playfair Display Black \u00b7 Inter \u00b7 Inconsolata</div>
+        </div>
+
+      </div>
+
+      <p style="margin-top:32px; max-width:60ch"><em>Read each one twice.</em> First as a headline. Then notice the body and the caption. The system has to hold all three. Then pick.</p>
+    </div>
+  </section>
+
+  <!-- 20 A vs E typography -->
+  <section class="section" data-screen-label="22 A vs E type">
+    <div class="label"><span class="num">20</span>A or E \u2014 typography in application</div>
+    <div>
+      <h2>Editorial classic vs. Three voices, modern. <em>Same masthead, same postcard, two different brands.</em></h2>
+      <p class="lead">A reads warm, literary, slightly old-world. E reads sharp, fashion-magazine, modernist. Same words. Same color. Same hierarchy. Read them out loud. Decide which voice the studio actually has.</p>
+
+      <h3 style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft); margin:32px 0 16px; font-weight:500">Magazine cover \u2014 same words, two type systems</h3>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px">
+
+        <!-- A cover -->
+        <div>
+          <div style="background:#F3EFE7; border:1px solid var(--rule); aspect-ratio:3/4; padding:36px 32px; display:flex; flex-direction:column">
+            <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#5A1A1A">
+              <span>Soglia \u00b7 No. 14</span><span>Sharjah \u00b7 May 2026</span>
+            </div>
+            <div style="flex:1; display:flex; align-items:center; justify-content:center; margin:24px 0; background:linear-gradient(135deg,oklch(72% 0.02 60),oklch(45% 0.02 40)); position:relative; overflow:hidden">
+              <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,oklch(40% 0.015 50/0.18) 14px,oklch(40% 0.015 50/0.18) 15px)"></div>
+              <div style="position:relative; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#F3EFE7; opacity:0.85">Plate 14</div>
+            </div>
+            <div style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:54px; line-height:0.92; letter-spacing:-0.02em; color:#1B1A18">The <em style="font-style:italic;font-weight:300">last</em><br>white orchid<br>this week.</div>
+            <div style="font-family:'Manrope',sans-serif; font-size:12px; line-height:1.55; color:#1B1A18; margin-top:12px; max-width:30ch">A studio note from the editor. On choosing one stem the way one chooses a sentence.</div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A; margin-top:10px">A \u2014 Editorial classic</div>
+          <div style="font-family:'Manrope',sans-serif; font-size:13px; color:var(--ink-soft); margin-top:4px"><b style="color:var(--ink); font-weight:500">Reads as.</b> Warm. Literary. The studio is older than it is.</div>
+        </div>
+
+        <!-- E cover -->
+        <div>
+          <div style="background:#F3EFE7; border:1px solid var(--rule); aspect-ratio:3/4; padding:36px 32px; display:flex; flex-direction:column">
+            <div style="display:flex; justify-content:space-between; font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:#5A1A1A">
+              <span>Soglia \u00b7 No. 14</span><span>Sharjah \u00b7 May 2026</span>
+            </div>
+            <div style="flex:1; display:flex; align-items:center; justify-content:center; margin:24px 0; background:linear-gradient(135deg,oklch(72% 0.02 60),oklch(45% 0.02 40)); position:relative; overflow:hidden">
+              <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,oklch(40% 0.015 50/0.18) 14px,oklch(40% 0.015 50/0.18) 15px)"></div>
+              <div style="position:relative; font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:#F3EFE7; opacity:0.85">Plate 14</div>
+            </div>
+            <div style="font-family:'Playfair Display',serif; font-weight:900; font-size:62px; line-height:0.88; letter-spacing:-0.03em; color:#1B1A18">The <span style="font-style:italic;font-weight:400">last</span><br>white orchid<br>this week.</div>
+            <div style="font-family:'Inter',sans-serif; font-weight:400; font-size:12px; line-height:1.55; color:#1B1A18; margin-top:12px; max-width:30ch">A studio note from the editor. On choosing one stem the way one chooses a sentence.</div>
+          </div>
+          <div style="font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A; margin-top:10px">E \u2014 Three voices, modern</div>
+          <div style="font-family:'Manrope',sans-serif; font-size:13px; color:var(--ink-soft); margin-top:4px"><b style="color:var(--ink); font-weight:500">Reads as.</b> Sharp. Fashion-magazine. The studio is now.</div>
+        </div>
+
+      </div>
+
+      <h3 style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft); margin:48px 0 16px; font-weight:500">Postcard \u2014 the everyday object</h3>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px">
+
+        <!-- A postcard -->
+        <div>
+          <div style="background:#F3EFE7; border:1px solid var(--rule); aspect-ratio:5/3; padding:22px; display:grid; grid-template-columns:1fr 110px; gap:20px">
+            <div style="display:flex; flex-direction:column; justify-content:space-between">
+              <div>
+                <div style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:36px; line-height:1; letter-spacing:-0.02em; color:#1B1A18">Soglia</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A; margin-top:4px">Loyalty card 03 / 10</div>
+              </div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:15px; color:#1B1A18; opacity:0.7">For the morning the keys turn.</div>
+            </div>
+            <div>
+              <div style="border:1.5px solid #5A1A1A; padding:10px 8px; aspect-ratio:0.78/1; display:flex; flex-direction:column; justify-content:space-between; align-items:center; text-align:center">
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A">Soglia<br>Studio</div>
+                <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:32px; line-height:1; color:#5A1A1A">14</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:7.5px; letter-spacing:0.16em; text-transform:uppercase; color:#5A1A1A">Sharjah<br>2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- E postcard -->
+        <div>
+          <div style="background:#F3EFE7; border:1px solid var(--rule); aspect-ratio:5/3; padding:22px; display:grid; grid-template-columns:1fr 110px; gap:20px">
+            <div style="display:flex; flex-direction:column; justify-content:space-between">
+              <div>
+                <div style="font-family:'Playfair Display',serif; font-weight:900; font-size:38px; line-height:1; letter-spacing:-0.03em; color:#1B1A18">Soglia</div>
+                <div style="font-family:'Inconsolata',monospace; font-size:9.5px; letter-spacing:0.22em; text-transform:uppercase; color:#5A1A1A; margin-top:4px">Loyalty card 03 / 10</div>
+              </div>
+              <div style="font-family:'Inter',sans-serif; font-style:italic; font-size:13px; color:#1B1A18; opacity:0.75; max-width:24ch">For the morning the keys turn.</div>
+            </div>
+            <div>
+              <div style="border:1.5px solid #5A1A1A; padding:10px 8px; aspect-ratio:0.78/1; display:flex; flex-direction:column; justify-content:space-between; align-items:center; text-align:center">
+                <div style="font-family:'Inconsolata',monospace; font-size:8.5px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">Soglia<br>Studio</div>
+                <div style="font-family:'Playfair Display',serif; font-weight:900; font-style:italic; font-size:32px; line-height:1; color:#5A1A1A">14</div>
+                <div style="font-family:'Inconsolata',monospace; font-size:8px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A">Sharjah<br>2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p style="margin-top:36px; max-width:60ch"><em>Trade-off note.</em> A is the trustworthy choice. It will age well. It will read like a studio that has always existed. E is the braver choice. It will read like a studio that arrived this season with a point of view. Both are correct. The question is which Soglia is.</p>
+    </div>
+  </section>
+
+  <!-- 21 Hybrid type tests -->
+  <section class="section" data-screen-label="23 Type hybrids">
+    <div class="label"><span class="num">21</span>Hybrid typography \u2014 in review</div>
+    <div>
+      <h2>Both hybrids on the same masthead. <em>Modern face, classical body. Or the reverse.</em></h2>
+      <p class="lead">Same Soglia cover, two ways of mixing the systems. Hybrid 1: E's display on the cover, A's voice in the long-form. Hybrid 2: A's display on the cover, E's grotesks in the chrome and utility. Both are real, defendable, and brand-coherent. Pick the one that holds.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:32px">
+
+        <!-- Hybrid 1: E display + A body -->
+        <div>
+          <div style="background:#F3EFE7; border:1px solid var(--rule); aspect-ratio:3/4; padding:36px 32px; display:flex; flex-direction:column">
+            <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#5A1A1A">
+              <span>Soglia \u00b7 No. 14</span><span>Sharjah \u00b7 May 2026</span>
+            </div>
+            <div style="flex:1; margin:24px 0; background:linear-gradient(135deg,oklch(72% 0.02 60),oklch(45% 0.02 40)); position:relative; overflow:hidden; display:flex; align-items:flex-end; padding:20px">
+              <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,oklch(40% 0.015 50/0.18) 14px,oklch(40% 0.015 50/0.18) 15px)"></div>
+              <div style="position:relative; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:14px; line-height:1.35; color:#F3EFE7; max-width:24ch">Plate 14. The bench at six in the evening, the third orchid still waiting.</div>
+            </div>
+            <div style="font-family:'Playfair Display',serif; font-weight:900; font-size:54px; line-height:0.88; letter-spacing:-0.03em; color:#1B1A18">The <span style="font-style:italic;font-weight:400">last</span><br>white orchid<br>this week.</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:17px; line-height:1.35; color:#1B1A18; margin-top:14px; max-width:30ch">A studio note from the editor. On choosing one stem the way one chooses a sentence.</div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A; margin-top:12px">Hybrid 1 \u2014 Modern face, classical body</div>
+          <div style="font-family:'Manrope',sans-serif; font-size:13px; line-height:1.55; color:var(--ink-soft); margin-top:6px; max-width:42ch"><b style="color:var(--ink); font-weight:500">Reads as.</b> The headline declares. The body slows you down. The tension between sharp display and warm body is the brand's signature.</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft); margin-top:8px">Playfair Black \u00b7 Cormorant Italic \u00b7 IBM Plex Mono</div>
+        </div>
+
+        <!-- Hybrid 2: A display + E body -->
+        <div>
+          <div style="background:#F3EFE7; border:1px solid var(--rule); aspect-ratio:3/4; padding:36px 32px; display:flex; flex-direction:column">
+            <div style="display:flex; justify-content:space-between; font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:#5A1A1A">
+              <span>Soglia \u00b7 No. 14</span><span>Sharjah \u00b7 May 2026</span>
+            </div>
+            <div style="flex:1; margin:24px 0; background:linear-gradient(135deg,oklch(72% 0.02 60),oklch(45% 0.02 40)); position:relative; overflow:hidden; display:flex; align-items:flex-end; padding:20px">
+              <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,oklch(40% 0.015 50/0.18) 14px,oklch(40% 0.015 50/0.18) 15px)"></div>
+              <div style="position:relative; font-family:'Inter',sans-serif; font-weight:400; font-size:13px; line-height:1.4; color:#F3EFE7; max-width:24ch">Plate 14. The bench at six in the evening, the third orchid still waiting.</div>
+            </div>
+            <div style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:60px; line-height:0.92; letter-spacing:-0.022em; color:#1B1A18">The <em style="font-style:italic;font-weight:300">last</em><br>white orchid<br>this week.</div>
+            <div style="font-family:'Inter',sans-serif; font-weight:400; font-size:13px; line-height:1.55; color:#1B1A18; margin-top:14px; max-width:30ch">A studio note from the editor. On choosing one stem the way one chooses a sentence.</div>
+          </div>
+          <div style="font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A; margin-top:12px">Hybrid 2 \u2014 Classical face, modern utility</div>
+          <div style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.55; color:var(--ink-soft); margin-top:6px; max-width:42ch"><b style="color:var(--ink); font-weight:500">Reads as.</b> The headline holds the ritual. The chrome and utility (web, captions, metadata) read sharp and contemporary. The studio is old-soul, the storefront is current.</div>
+          <div style="font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft); margin-top:8px">Cormorant \u00b7 Inter \u00b7 Inconsolata</div>
+        </div>
+
+      </div>
+
+      <h3 style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft); margin:48px 0 16px; font-weight:500">Same hybrid pair on the postcard</h3>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px">
+
+        <!-- H1 postcard: Playfair Soglia + Cormorant message -->
+        <div>
+          <div style="background:#F3EFE7; border:1px solid var(--rule); aspect-ratio:5/3; padding:22px; display:grid; grid-template-columns:1fr 110px; gap:20px">
+            <div style="display:flex; flex-direction:column; justify-content:space-between">
+              <div>
+                <div style="font-family:'Playfair Display',serif; font-weight:900; font-size:36px; line-height:1; letter-spacing:-0.03em; color:#1B1A18">Soglia</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A; margin-top:4px">Loyalty card 03 / 10</div>
+              </div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:16px; color:#1B1A18; max-width:24ch">For the morning the keys turn.</div>
+            </div>
+            <div>
+              <div style="border:1.5px solid #5A1A1A; padding:10px 8px; aspect-ratio:0.78/1; display:flex; flex-direction:column; justify-content:space-between; align-items:center; text-align:center">
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A">Soglia<br>Studio</div>
+                <div style="font-family:'Playfair Display',serif; font-weight:900; font-style:italic; font-size:32px; line-height:1; color:#5A1A1A">14</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:7.5px; letter-spacing:0.16em; text-transform:uppercase; color:#5A1A1A">Sharjah<br>2026</div>
+              </div>
+            </div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A; margin-top:10px">Hybrid 1</div>
+        </div>
+
+        <!-- H2 postcard: Cormorant Soglia + Inter message -->
+        <div>
+          <div style="background:#F3EFE7; border:1px solid var(--rule); aspect-ratio:5/3; padding:22px; display:grid; grid-template-columns:1fr 110px; gap:20px">
+            <div style="display:flex; flex-direction:column; justify-content:space-between">
+              <div>
+                <div style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:38px; line-height:1; letter-spacing:-0.02em; color:#1B1A18">Soglia</div>
+                <div style="font-family:'Inconsolata',monospace; font-size:9.5px; letter-spacing:0.22em; text-transform:uppercase; color:#5A1A1A; margin-top:4px">Loyalty card 03 / 10</div>
+              </div>
+              <div style="font-family:'Inter',sans-serif; font-style:italic; font-weight:300; font-size:13.5px; color:#1B1A18; max-width:24ch">For the morning the keys turn.</div>
+            </div>
+            <div>
+              <div style="border:1.5px solid #5A1A1A; padding:10px 8px; aspect-ratio:0.78/1; display:flex; flex-direction:column; justify-content:space-between; align-items:center; text-align:center">
+                <div style="font-family:'Inconsolata',monospace; font-size:8.5px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">Soglia<br>Studio</div>
+                <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:32px; line-height:1; color:#5A1A1A">14</div>
+                <div style="font-family:'Inconsolata',monospace; font-size:8px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A">Sharjah<br>2026</div>
+              </div>
+            </div>
+          </div>
+          <div style="font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A; margin-top:10px">Hybrid 2</div>
+        </div>
+
+      </div>
+
+      <p style="margin-top:36px; max-width:60ch"><em>The honest read.</em> Hybrid 1 is the more distinctive of the two. The Playfair Black Soglia wordmark is doing more identity work than the Cormorant version, and the Cormorant italic body keeps the warmth. Hybrid 2 is safer and reads quieter. If we want one editor's recommendation, it is Hybrid 1.</p>
+    </div>
+  </section>
+
+  <!-- 22 Typography locked -->
+  <section class="section" data-screen-label="24 Typography locked">
+    <div class="label"><span class="num">22</span>Typography — locked</div>
+    <div>
+      <h2>Classical face, modern utility. <em>Cormorant for the studio's voice. Inter and Inconsolata for the storefront.</em></h2>
+      <p class="lead">The studio writes in Cormorant. Anything that reads as Soglia speaking — the wordmark, the cover, the long-form note, the signature on a card — is in Cormorant. Anything that helps the customer move through the world — web utility, buttons, captions, metadata, address blocks, page numbers — is in Inter or Inconsolata. Two clean lanes.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:32px">
+        <div style="background:#F3EFE7; padding:32px 28px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">Display · Voice</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:72px; line-height:1; letter-spacing:-0.025em; color:#1B1A18; margin:14px 0 6px">Soglia</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:20px; color:#1B1A18">Cormorant Garamond</div>
+          <div style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.55; color:var(--ink-soft); margin-top:14px">The wordmark, all editorial headlines, long-form body in italic, the founder's signature. Used wherever the studio is speaking.</div>
+        </div>
+        <div style="background:#F3EFE7; padding:32px 28px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">Utility · Storefront</div>
+          <div style="font-family:'Inter',sans-serif; font-weight:500; font-size:48px; line-height:1; letter-spacing:-0.02em; color:#1B1A18; margin:14px 0 6px">Aa Bb</div>
+          <div style="font-family:'Inter',sans-serif; font-size:14px; color:#1B1A18">Inter</div>
+          <div style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.55; color:var(--ink-soft); margin-top:14px">Web body, navigation, buttons, address blocks, form fields, prices, anywhere the customer is doing rather than reading.</div>
+        </div>
+        <div style="background:#F3EFE7; padding:32px 28px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">Marginalia · Metadata</div>
+          <div style="font-family:'Inconsolata',monospace; font-weight:500; font-size:42px; line-height:1; letter-spacing:0.02em; color:#1B1A18; margin:14px 0 6px">14 / 26</div>
+          <div style="font-family:'Inconsolata',monospace; font-size:14px; color:#1B1A18">Inconsolata</div>
+          <div style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.55; color:var(--ink-soft); margin-top:14px">Captions, page numbers, dates, postmarks, issue numbers, edition counts, the studio's metadata voice. Always tracked, always small, always uppercase by default.</div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:48px">Hierarchy. <em>Six ranks. Use only what the surface needs.</em></h2>
+      <div style="border-top:1px solid var(--ink); margin-top:24px">
+        <div style="display:grid; grid-template-columns:140px 1fr 200px; gap:24px; padding:18px 0; border-bottom:1px solid var(--rule); align-items:baseline">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft)">H1 · Cover</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:60px; line-height:0.92; letter-spacing:-0.022em; color:var(--ink)">The last white orchid</div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; color:var(--ink-soft)">Cormorant 60–84px / lh 0.92 / -0.022em</div>
+        </div>
+        <div style="display:grid; grid-template-columns:140px 1fr 200px; gap:24px; padding:18px 0; border-bottom:1px solid var(--rule); align-items:baseline">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft)">H2 · Section</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:36px; line-height:1.05; letter-spacing:-0.015em; color:var(--ink)">A studio note from the editor</div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; color:var(--ink-soft)">Cormorant 32–42px / lh 1.05 / -0.015em</div>
+        </div>
+        <div style="display:grid; grid-template-columns:140px 1fr 200px; gap:24px; padding:18px 0; border-bottom:1px solid var(--rule); align-items:baseline">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft)">Editorial body</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:18px; line-height:1.4; color:var(--ink)">On choosing one stem the way one chooses a sentence. Cormorant italic earns slowness; use it for the deck, the founder's letter, the long-form caption.</div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; color:var(--ink-soft)">Cormorant Italic 17–20px / lh 1.4</div>
+        </div>
+        <div style="display:grid; grid-template-columns:140px 1fr 200px; gap:24px; padding:18px 0; border-bottom:1px solid var(--rule); align-items:baseline">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft)">Utility body</div>
+          <div style="font-family:'Inter',sans-serif; font-weight:400; font-size:14.5px; line-height:1.6; color:var(--ink)">Add to bag. Choose your delivery date. Address line one. The voice the customer reads when they are completing a task.</div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; color:var(--ink-soft)">Inter 14–16px / lh 1.6</div>
+        </div>
+        <div style="display:grid; grid-template-columns:140px 1fr 200px; gap:24px; padding:18px 0; border-bottom:1px solid var(--rule); align-items:baseline">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft)">Caption</div>
+          <div style="font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink)">Plate 14 · Sharjah · May 2026</div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; color:var(--ink-soft)">Inconsolata 10–11px / +0.2em / uppercase</div>
+        </div>
+        <div style="display:grid; grid-template-columns:140px 1fr 200px; gap:24px; padding:18px 0; border-bottom:1px solid var(--rule); align-items:baseline">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft)">Folio</div>
+          <div style="font-family:'Inconsolata',monospace; font-weight:500; font-size:14px; letter-spacing:0.04em; color:#5A1A1A">14 · No. xiv</div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; color:var(--ink-soft)">Inconsolata 13–16px in oxblood</div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:48px">Don'ts. <em>Hard rules, not preferences.</em></h2>
+      <ul style="list-style:none; padding:0; margin:24px 0 8px">
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't set Cormorant below 16px. It loses the contrast that makes it Cormorant. For utility under 16px, switch to Inter.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't bold Cormorant for emphasis. Italic is the emphasis. If italic isn't enough, the sentence is wrong.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't track Cormorant. Tracking is for Inconsolata uppercase only. Cormorant always sits at default tracking or slightly negative on display sizes.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't use Inconsolata for body copy. It is metadata, label, postmark voice only. Long passages in mono read as a blog or a terminal.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't introduce a fourth typeface. The three-voice system is the system. Decorative scripts, handwritten faces, and display-of-the-month are off-limits.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't all-caps Cormorant. It is meant to be read sentence-case or title-case. Caps treatments belong to Inconsolata.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 23 Logo system locked -->
+  <section class="section" data-screen-label="25 Logo system">
+    <div class="label"><span class="num">23</span>Logo system — locked</div>
+    <div>
+      <h2>Wordmark-led. <em>The letters do the work; the line keeps the time.</em></h2>
+      <p class="lead">Phase 6 put five threshold devices on the table. The decision: the brand is carried by the wordmark, not a symbol. Strip the picture, you should still know it's Soglia — so the picture is the type. The one device that survives is the parallel rule from your reference, demoted from "logo" to "the studio's punctuation": a divider, a folio companion, the line where one state becomes another.</p>
+
+      <!-- The decision strip -->
+      <p style="font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft); margin:32px 0 14px">The five candidates, resolved</p>
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule)">
+        <div style="background:var(--bone); padding:20px 18px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">A · Doorway</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; color:var(--ink-soft); margin-top:8px">Retired</div>
+          <div style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.5; color:var(--ink-soft); margin-top:8px">Too literal. On the nose.</div>
+        </div>
+        <div style="background:#F3EFE7; padding:20px 18px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:#5A1A1A">B · Parallel rule</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; color:#1B1A18; margin-top:8px">Kept — as device</div>
+          <div style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.5; color:var(--ink-soft); margin-top:8px">Becomes the threshold rule. Not the logo.</div>
+        </div>
+        <div style="background:var(--bone); padding:20px 18px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">C · Frame</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; color:var(--ink-soft); margin-top:8px">Retired</div>
+          <div style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.5; color:var(--ink-soft); margin-top:8px">Lives on in layout margins, not the mark.</div>
+        </div>
+        <div style="background:var(--bone); padding:20px 18px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">D · Stem</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; color:var(--ink-soft); margin-top:8px">Retired</div>
+          <div style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.5; color:var(--ink-soft); margin-top:8px">Too floral-shop. Off-brief.</div>
+        </div>
+        <div style="background:#F3EFE7; padding:20px 18px; box-shadow:inset 0 2px 0 #5A1A1A">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:#5A1A1A">E · Letterform</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; color:#1B1A18; margin-top:8px">Chosen — primary</div>
+          <div style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.5; color:var(--ink-soft); margin-top:8px">The wordmark is the identity.</div>
+        </div>
+      </div>
+
+      <!-- Primary wordmark -->
+      <h2 style="margin-top:64px">The primary wordmark. <em>One construction, learned once.</em></h2>
+      <div style="background:#F3EFE7; border:1px solid var(--rule); padding:72px 56px 40px; margin-top:24px; position:relative">
+        <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A; position:absolute; top:20px; left:24px">Primary · Ink on paper</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:clamp(80px,12vw,150px); line-height:0.9; letter-spacing:-0.02em; color:#1B1A18; text-align:center"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></div>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:48px; border-top:1px solid var(--rule); padding-top:20px">
+          <div><div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft)">Face</div><div style="font-family:'Inter',sans-serif; font-size:12.5px; color:#1B1A18; margin-top:4px">Cormorant Garamond, italic body</div></div>
+          <div><div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft)">The S</div><div style="font-family:'Inter',sans-serif; font-size:12.5px; color:#1B1A18; margin-top:4px">Roman, weight 300 — upright initial against the italic</div></div>
+          <div><div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft)">The point</div><div style="font-family:'Inter',sans-serif; font-size:12.5px; color:#1B1A18; margin-top:4px">Roman period — the door closing. Always present</div></div>
+          <div><div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft)">Tracking</div><div style="font-family:'Inter',sans-serif; font-size:12.5px; color:#1B1A18; margin-top:4px">−0.02em on display; never positive</div></div>
+        </div>
+      </div>
+      <p style="margin-top:18px; max-width:60ch">The upright <em>S</em> and the full stop are the only non-italic moments. They are the threshold made of type — a step up into the word, a step down out of it. Reproduce the wordmark from this construction; never retype it freehand or substitute a similar serif.</p>
+
+      <!-- The threshold rule + monogram -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:40px">
+        <div style="background:#F3EFE7; padding:36px 32px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">The threshold rule · device</div>
+          <div style="padding:34px 0 30px">
+            <div style="height:1.5px; background:#1B1A18; margin-bottom:7px"></div>
+            <div style="height:1.5px; background:#1B1A18"></div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.55; color:var(--ink-soft)">Two parallel lines, the second offset by its own weight. The line where one state becomes another. Used as a section divider, above the folio, and as the seam on packaging. Never as a frame, never as a flourish.</div>
+        </div>
+        <div style="background:#F3EFE7; padding:36px 32px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">The monogram · S.</div>
+          <div style="display:flex; gap:18px; align-items:flex-end; padding:18px 0 14px">
+            <div style="width:96px; height:96px; border:1px solid #1B1A18; display:flex; align-items:center; justify-content:center; background:var(--bone)"><span style="font-family:'Cormorant Garamond',serif; font-size:52px; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span><span style="font-weight:300">.</span></span></div>
+            <div style="width:60px; height:60px; background:#1B1A18; display:flex; align-items:center; justify-content:center"><span style="font-family:'Cormorant Garamond',serif; font-size:32px; color:#F3EFE7"><span style="font-style:normal; font-weight:300">S</span><span style="font-weight:300">.</span></span></div>
+            <div style="width:40px; height:40px; background:#5A1A1A; display:flex; align-items:center; justify-content:center"><span style="font-family:'Cormorant Garamond',serif; font-size:21px; color:#F3EFE7"><span style="font-style:normal; font-weight:300">S</span><span style="font-weight:300">.</span></span></div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.55; color:var(--ink-soft)">Roman <em>S</em> plus point, never italic. For avatars, the wax-free seal, the favicon, the stamp on the box flap — anywhere the full wordmark would set too small to read.</div>
+        </div>
+      </div>
+
+      <!-- Lockups -->
+      <h2 style="margin-top:64px">Lockups. <em>Three, and no more.</em></h2>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:24px">
+        <div style="background:#F3EFE7; padding:40px 28px; display:flex; flex-direction:column">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">01 · Solo</div>
+          <div style="flex:1; display:flex; align-items:center; justify-content:center; padding:28px 0"><span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:46px; letter-spacing:-0.02em; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></span></div>
+          <div style="font-family:'Inter',sans-serif; font-size:12px; color:var(--ink-soft)">Default. The wordmark alone, everywhere it can stand alone.</div>
+        </div>
+        <div style="background:#F3EFE7; padding:40px 28px; display:flex; flex-direction:column">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">02 · Descriptor</div>
+          <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px 0; gap:10px">
+            <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:40px; letter-spacing:-0.02em; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></span>
+            <span style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.34em; text-transform:uppercase; color:#5A1A1A; padding-left:0.34em">Floristry · Sharjah</span>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12px; color:var(--ink-soft)">First contact. Storefront, signage, the back of the card.</div>
+        </div>
+        <div style="background:#F3EFE7; padding:40px 28px; display:flex; flex-direction:column">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">03 · Masthead</div>
+          <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px 0; gap:9px; width:100%">
+            <span style="font-family:'Inconsolata',monospace; font-size:9.5px; letter-spacing:0.3em; text-transform:uppercase; color:var(--ink-soft)">No. xiv · May 2026</span>
+            <div style="width:64%; height:1px; background:#1B1A18"></div>
+            <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:40px; letter-spacing:-0.02em; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></span>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12px; color:var(--ink-soft)">Editorial. Heads the deck, the issue, the founder's letter.</div>
+        </div>
+      </div>
+
+      <!-- Color treatments -->
+      <h2 style="margin-top:64px">Color treatments. <em>Four. The fourth is private.</em></h2>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:24px">
+        <div style="aspect-ratio:1/1; background:#F3EFE7; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px"><span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:40px; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></span><span style="font-family:'Inconsolata',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">Ink on paper · default</span></div>
+        <div style="aspect-ratio:1/1; background:#1B1A18; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px"><span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:40px; color:#F3EFE7"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></span><span style="font-family:'Inconsolata',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(243,239,231,0.6)">Paper on ink · reversed</span></div>
+        <div style="aspect-ratio:1/1; background:#F3EFE7; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px"><span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:40px; color:#5A1A1A"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></span><span style="font-family:'Inconsolata',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">Oxblood · public accent</span></div>
+        <div style="aspect-ratio:1/1; background:#F3EFE7; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; position:relative"><span style="font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft); position:absolute; top:14px; right:14px">Private</span><span style="font-family:'Cormorant Garamond',serif; font-size:48px; color:#1F3A6B"><span style="font-style:normal; font-weight:300">S</span><span style="font-weight:300">.</span></span><span style="font-family:'Inconsolata',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">Cobalt monogram · founder only</span></div>
+      </div>
+
+      <!-- Clear space + min size -->
+      <h2 style="margin-top:64px">Clear space &amp; minimum size. <em>The S is the unit.</em></h2>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:24px">
+        <div style="background:#F3EFE7; padding:40px 36px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A; margin-bottom:24px">Clear space</div>
+          <div style="position:relative; border:1px dashed var(--rule); padding:48px"><div style="position:absolute; inset:24px; border:1px solid #5A1A1A; opacity:0.32"></div><div style="display:flex; align-items:center; justify-content:center; position:relative"><span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:56px; letter-spacing:-0.02em; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></span></div><span style="font-family:'Inconsolata',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:#5A1A1A; position:absolute; top:6px; left:50%; transform:translateX(-50%)">↕ x</span></div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.55; color:var(--ink-soft); margin-top:16px">Minimum clear space on every side equals <em>x</em> — the cap height of the upright <em>S</em>. Nothing enters that margin: no type, no image edge, no other logo.</div>
+        </div>
+        <div style="background:#F3EFE7; padding:40px 36px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A; margin-bottom:24px">Minimum size</div>
+          <div style="display:flex; flex-direction:column; gap:22px">
+            <div style="display:flex; align-items:baseline; gap:16px"><span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:28px; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></span><span style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft)">Wordmark · 24px / 7mm min</span></div>
+            <div style="display:flex; align-items:baseline; gap:16px"><span style="font-family:'Cormorant Garamond',serif; font-size:22px; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span><span style="font-weight:300">.</span></span><span style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft)">Monogram · 16px / 4mm min</span></div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.55; color:var(--ink-soft); margin-top:24px">Below the wordmark minimum, switch to the monogram. Below the monogram minimum, the brand goes wordless — use the threshold rule alone rather than an illegible mark.</div>
+        </div>
+      </div>
+
+      <!-- Don'ts -->
+      <h2 style="margin-top:48px">Don'ts. <em>Hard rules, not preferences.</em></h2>
+      <ul style="list-style:none; padding:0; margin:24px 0 8px">
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't italicize the S or the point. They are the only upright moments in the mark; that contrast is the whole idea.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't drop the full stop. "Soglia" without the point is not the wordmark. The door has to close.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't add a symbol. No flower, no doorway, no monogram lockup beside the wordmark. The type is the mark; pairing it with an icon halves it.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't set the wordmark in oxblood on dark, or anywhere it drops below 3:1 contrast. Oxblood is a paper accent, not a reversed one.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't use the cobalt monogram in public. It is the founder's private mark — correspondence, the inside of a card, never the storefront.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't stretch, outline, drop-shadow, gradient, or rotate the mark. If it won't fit upright and flat, the layout is wrong, not the logo.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 24 Marks & usage locked -->
+  <section class="section" data-screen-label="26 Marks and usage">
+    <div class="label"><span class="num">24</span>Marks &amp; usage — locked</div>
+    <div>
+      <h2>The mark in company. <em>How Soglia stands next to other names, and on other people's surfaces.</em></h2>
+      <p class="lead">Construction, clear space, and minimum size are settled in Phase 7. This phase governs the harder part: what happens when the wordmark is not alone — beside a partner, over a photograph, in a corner it doesn't own. The rule throughout: Soglia is a guest with good posture. It never shrinks to apologise and never crowds to dominate.</p>
+
+      <!-- Partner lockups -->
+      <h2 style="margin-top:56px">Partner lockups. <em>The threshold rule does the joining.</em></h2>
+      <p style="max-width:60ch">When Soglia shares a surface with another name — a hotel lobby, a gallery opening, a chef's table — the two marks are separated by the threshold rule, never crammed against a slash or an ampersand. Equal weight, equal air, one line between them.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:24px">
+        <!-- horizontal lockup -->
+        <div style="background:#F3EFE7; padding:44px 36px; display:flex; flex-direction:column">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">Horizontal · equal partners</div>
+          <div style="flex:1; display:flex; align-items:center; justify-content:center; gap:32px; padding:34px 0">
+            <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:42px; letter-spacing:-0.02em; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></span>
+            <span style="width:1px; height:54px; background:#1B1A18; display:inline-block"></span>
+            <span style="font-family:'Inter',sans-serif; font-weight:300; font-size:20px; letter-spacing:0.02em; color:#1B1A18">Partner mark</span>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12px; color:var(--ink-soft)">Side by side when the collaboration is billed equally. The rule sits at shared cap height.</div>
+        </div>
+        <!-- stacked / hosted -->
+        <div style="background:#F3EFE7; padding:44px 36px; display:flex; flex-direction:column">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">Stacked · hosted by</div>
+          <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:13px; padding:28px 0">
+            <span style="font-family:'Inconsolata',monospace; font-size:9.5px; letter-spacing:0.3em; text-transform:uppercase; color:#5A1A1A">Flowers by</span>
+            <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:42px; letter-spacing:-0.02em; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></span>
+            <span style="width:56px; height:1px; background:#1B1A18"></span>
+            <span style="font-family:'Inter',sans-serif; font-weight:300; font-size:16px; letter-spacing:0.02em; color:var(--ink-soft)">Host venue name</span>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12px; color:var(--ink-soft)">When Soglia is supplier, not headliner. The qualifier line carries the relationship.</div>
+        </div>
+      </div>
+
+      <!-- Endorsement hierarchy -->
+      <h2 style="margin-top:56px">Endorsement hierarchy. <em>Three relationships, three registers.</em></h2>
+      <div style="border-top:1px solid var(--ink); margin-top:24px">
+        <div style="display:grid; grid-template-columns:170px 1fr 220px; gap:24px; padding:20px 0; border-bottom:1px solid var(--rule); align-items:baseline">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A">Partnership</div>
+          <div style="font-family:'Inter',sans-serif; font-size:14px; line-height:1.55; color:var(--ink)">Co-created, co-billed. Both names lead. Use the horizontal lockup with the threshold rule between, equal size.</div>
+          <div style="font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.04em; color:var(--ink-soft)">Soglia. │ Partner</div>
+        </div>
+        <div style="display:grid; grid-template-columns:170px 1fr 220px; gap:24px; padding:20px 0; border-bottom:1px solid var(--rule); align-items:baseline">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A">Supply</div>
+          <div style="font-family:'Inter',sans-serif; font-size:14px; line-height:1.55; color:var(--ink)">Soglia provides the flowers for someone else's event or space. Use the stacked "Flowers by" lockup; the host leads, Soglia signs.</div>
+          <div style="font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.04em; color:var(--ink-soft)">Flowers by Soglia.</div>
+        </div>
+        <div style="display:grid; grid-template-columns:170px 1fr 220px; gap:24px; padding:20px 0; border-bottom:1px solid var(--rule); align-items:baseline">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase; color:#5A1A1A">Stocked at</div>
+          <div style="font-family:'Inter',sans-serif; font-size:14px; line-height:1.55; color:var(--ink)">A third party lists or carries Soglia. They use the solo wordmark at text size in their own system — never the monogram, never recoloured.</div>
+          <div style="font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.04em; color:var(--ink-soft)">…available at Soglia.</div>
+        </div>
+      </div>
+
+      <!-- Mark over photography -->
+      <h2 style="margin-top:56px">Over photography. <em>Reversed, cornered, never centred.</em></h2>
+      <p style="max-width:60ch">The image plate is the one polychromatic surface in the brand. The mark reverses to paper white and takes a corner — it never floats in the middle of a photograph, never sits on a scrim, never tints the image to make itself legible. If the corner is too busy, the photograph is cropped wrong.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px">
+        <!-- correct -->
+        <div>
+          <div style="aspect-ratio:4/3; background:linear-gradient(135deg,oklch(60% 0.03 50),oklch(38% 0.025 35)); position:relative; overflow:hidden; border:1px solid var(--rule)">
+            <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,oklch(30% 0.015 40/0.22) 14px,oklch(30% 0.015 40/0.22) 15px)"></div>
+            <div style="position:absolute; bottom:18px; left:20px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:34px; letter-spacing:-0.02em; color:#F3EFE7"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></div>
+            <div style="position:absolute; top:16px; right:18px; font-family:'Inconsolata',monospace; font-size:9.5px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(243,239,231,0.82)">Plate 14</div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; color:var(--ink-soft); margin-top:12px"><b style="color:#1B1A18; font-weight:500">Correct.</b> Reversed to paper, lower-left, clear of the subject. Image carries its plate number top-right.</div>
+        </div>
+        <!-- wrong -->
+        <div>
+          <div style="aspect-ratio:4/3; background:linear-gradient(135deg,oklch(60% 0.03 50),oklch(38% 0.025 35)); position:relative; overflow:hidden; border:1px solid var(--rule)">
+            <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,oklch(30% 0.015 40/0.22) 14px,oklch(30% 0.015 40/0.22) 15px)"></div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center"><span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:40px; letter-spacing:-0.02em; color:#5A1A1A; background:rgba(243,239,231,0.7); padding:6px 18px"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></span></div>
+            <div style="position:absolute; top:14px; left:14px; width:26px; height:26px; border-radius:50%; border:2px solid #5A1A1A; display:flex; align-items:center; justify-content:center; color:#5A1A1A; font-family:'Inter',sans-serif; font-size:18px; line-height:1">×</div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; color:var(--ink-soft); margin-top:12px"><b style="color:#5A1A1A; font-weight:500">Wrong.</b> Centred, oxblood, sat on a scrim box. Three violations in one placement.</div>
+        </div>
+      </div>
+
+      <!-- Placement system -->
+      <h2 style="margin-top:56px">Placement. <em>The mark lives in a corner or on a masthead — not in the middle.</em></h2>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:24px">
+        <div style="background:#F3EFE7; aspect-ratio:1/1; position:relative; padding:18px"><div style="position:absolute; inset:14px; border:1px dashed var(--rule)"></div><div style="position:absolute; bottom:22px; left:24px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:24px; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></div><div style="position:absolute; top:18px; left:24px; font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft)">Corner · default</div></div>
+        <div style="background:#F3EFE7; aspect-ratio:1/1; position:relative; padding:18px"><div style="position:absolute; inset:14px; border:1px dashed var(--rule)"></div><div style="position:absolute; top:50%; left:0; right:0; transform:translateY(-50%); text-align:center"><div style="font-family:'Inconsolata',monospace; font-size:8px; letter-spacing:0.26em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:6px">No. xiv</div><div style="width:50%; height:1px; background:#1B1A18; margin:0 auto 8px"></div><div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:24px; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></div></div><div style="position:absolute; top:18px; left:24px; font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft)">Masthead · editorial</div></div>
+        <div style="background:#1B1A18; aspect-ratio:1/1; position:relative; padding:18px"><div style="position:absolute; inset:14px; border:1px dashed rgba(243,239,231,0.22)"></div><div style="position:absolute; bottom:24px; right:24px; width:42px; height:42px; background:#5A1A1A; display:flex; align-items:center; justify-content:center"><span style="font-family:'Cormorant Garamond',serif; font-size:22px; color:#F3EFE7"><span style="font-style:normal; font-weight:300">S</span><span style="font-weight:300">.</span></span></div><div style="position:absolute; top:18px; left:24px; font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(243,239,231,0.7)">Seal · the box flap</div></div>
+      </div>
+
+      <!-- Don'ts -->
+      <h2 style="margin-top:48px">Don'ts. <em>Co-branding is where brands lose their nerve.</em></h2>
+      <ul style="list-style:none; padding:0; margin:24px 0 8px">
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't join two marks with a slash, plus sign, ampersand, or "x". The threshold rule is the only connector Soglia uses.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't shrink Soglia to fit beside a bigger partner logo. Equal air or the stacked "Flowers by" lockup — never a diminished wordmark.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't place the mark in the centre of a photograph, or on a scrim, gradient, or blur box added to force legibility. Corner, reversed, clear — or recrop the image.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't let a partner restyle the wordmark into their system — their colour, their font, their case. Stocked-at partners get the solo wordmark, unchanged, or nothing.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't co-brand in cobalt. Partnerships are public; cobalt is private. Shared surfaces are ink, paper, and oxblood only.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 25 Imagery locked -->
+  <section class="section" data-screen-label="27 Imagery">
+    <div class="label"><span class="num">25</span>Imagery — locked</div>
+    <div>
+      <h2>One subject, side light, room to breathe. <em>The photograph is the brand's only colour.</em></h2>
+      <p class="lead">Soglia's visual territory is editorial, not catalogue. The image plate is the single surface permitted to be polychromatic — everything around it stays paper, ink, and oxblood. So the photograph has to do the work a magazine cover would: carry the feeling, hold the page, earn its caption. This is the brief every shot is held against. Nothing here is final photography; the plates are placeholders for the real direction.</p>
+
+      <!-- The brief, four dials -->
+      <h2 style="margin-top:56px">The brief. <em>Four decisions, made before the shutter.</em></h2>
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:24px">
+        <div style="background:#F3EFE7; padding:32px 28px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">Subject</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:30px; line-height:1.05; color:#1B1A18; margin:10px 0 8px">One stem, or one gesture.</div>
+          <div style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.55; color:var(--ink-soft)">A single flower, a hand tying a stem, a wrapped order on a stone counter. Never a wall of product, never a styled flat-lay. If you can't name the one thing the photo is about, recompose.</div>
+        </div>
+        <div style="background:#F3EFE7; padding:32px 28px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">Light</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:30px; line-height:1.05; color:#1B1A18; margin:10px 0 8px">Side light, hard shadow.</div>
+          <div style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.55; color:var(--ink-soft)">Directional daylight from one side, shadows allowed to fall and stay. No ring light, no soft-box wash, no even fill. The shadow is part of the subject.</div>
+        </div>
+        <div style="background:#F3EFE7; padding:32px 28px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">Crop</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:30px; line-height:1.05; color:#1B1A18; margin:10px 0 8px">Asymmetric, with air.</div>
+          <div style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.55; color:var(--ink-soft)">Subject off-centre, negative space deliberate — that space is where type and the mark live. Tight enough to feel chosen, loose enough to breathe. Full-bleed when the image leads.</div>
+        </div>
+        <div style="background:#F3EFE7; padding:32px 28px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10.5px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">Colour</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:30px; line-height:1.05; color:#1B1A18; margin:10px 0 8px">Whatever the flowers carry.</div>
+          <div style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.55; color:var(--ink-soft)">No filter, no brand-tint, no oxblood grade. True colour, neutral white balance, against quiet ground — stone, plaster, paper, raw timber. The bloom is the only saturation.</div>
+        </div>
+      </div>
+
+      <!-- Plate specimens -->
+      <h2 style="margin-top:56px">Plate types. <em>Three jobs a photograph does.</em></h2>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:24px">
+        <div>
+          <div style="aspect-ratio:3/4; background:linear-gradient(120deg,oklch(64% 0.03 60),oklch(40% 0.025 38)); position:relative; overflow:hidden; border:1px solid var(--rule)">
+            <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,oklch(30% 0.015 40/0.2) 14px,oklch(30% 0.015 40/0.2) 15px)"></div>
+            <div style="position:absolute; top:14px; left:16px; font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(243,239,231,0.85)">Plate · Hero</div>
+            <div style="position:absolute; bottom:16px; left:16px; right:16px; font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.12em; color:rgba(243,239,231,0.8)">Single subject, side light, vertical</div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; color:var(--ink-soft); margin-top:12px"><b style="color:#1B1A18; font-weight:500">Hero.</b> Covers, the deck, the masthead. Vertical, full-bleed, one stem.</div>
+        </div>
+        <div>
+          <div style="aspect-ratio:3/4; background:linear-gradient(120deg,oklch(58% 0.028 48),oklch(36% 0.022 32)); position:relative; overflow:hidden; border:1px solid var(--rule)">
+            <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,oklch(30% 0.015 40/0.2) 14px,oklch(30% 0.015 40/0.2) 15px)"></div>
+            <div style="position:absolute; top:14px; left:16px; font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(243,239,231,0.85)">Plate · Gesture</div>
+            <div style="position:absolute; bottom:16px; left:16px; right:16px; font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.12em; color:rgba(243,239,231,0.8)">Hands at work, mid-action, cropped</div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; color:var(--ink-soft); margin-top:12px"><b style="color:#1B1A18; font-weight:500">Gesture.</b> Process, craft, the human hand. Shows the work without showing a face.</div>
+        </div>
+        <div>
+          <div style="aspect-ratio:3/4; background:linear-gradient(120deg,oklch(70% 0.018 70),oklch(48% 0.015 50)); position:relative; overflow:hidden; border:1px solid var(--rule)">
+            <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,oklch(34% 0.012 50/0.18) 14px,oklch(34% 0.012 50/0.18) 15px)"></div>
+            <div style="position:absolute; top:14px; left:16px; font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(243,239,231,0.85)">Plate · Object</div>
+            <div style="position:absolute; bottom:16px; left:16px; right:16px; font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.12em; color:rgba(243,239,231,0.8)">Wrapped order on stone, quiet ground</div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; color:var(--ink-soft); margin-top:12px"><b style="color:#1B1A18; font-weight:500">Object.</b> The finished thing — wrap, card, seal. Product photography that reads editorial.</div>
+        </div>
+      </div>
+
+      <!-- Captioning -->
+      <h2 style="margin-top:56px">Every plate is captioned. <em>Dated, placed, numbered.</em></h2>
+      <p style="max-width:60ch">Photographs are never silent in this brand. Each one carries metadata in Inconsolata — plate number, place, date — the way a magazine credits a shot. It is what keeps the imagery editorial rather than advertising.</p>
+      <div style="background:#F3EFE7; border:1px solid var(--rule); padding:28px 32px; margin-top:24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px">
+        <span style="font-family:'Inconsolata',monospace; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:#1B1A18">Plate 14 · Sharjah · May 2026</span>
+        <span style="width:1px; height:20px; background:var(--rule)"></span>
+        <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:18px; color:var(--ink-soft)">A single white orchid, the last of three.</span>
+        <span style="width:1px; height:20px; background:var(--rule)"></span>
+        <span style="font-family:'Inconsolata',monospace; font-size:12px; letter-spacing:0.04em; color:#5A1A1A">No. xiv</span>
+      </div>
+
+      <!-- Don'ts -->
+      <h2 style="margin-top:48px">Don'ts. <em>The line between editorial and catalogue.</em></h2>
+      <ul style="list-style:none; padding:0; margin:24px 0 8px">
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't shoot flat, even, soft-box light. If there's no shadow, there's no Soglia. Directional light is non-negotiable.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't fill the frame with product. One subject. A bouquet wall reads florist-shop, not studio.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't grade toward oxblood, sepia, or any brand tint. The image is the one place true colour is allowed; tinting it makes the whole brand look filtered.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't centre the subject and crop it tight on all four sides. Asymmetry and air are where the type goes; a centred crop has nowhere for the brand to speak.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't show full faces or staged models. Hands, gestures, the back of a figure — the human is present, never the hero.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't use stock photography. Every plate is shot for Soglia, captioned with its real place and date. Borrowed images break the editorial contract.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 26 Graphic elements locked -->
+  <section class="section" data-screen-label="28 Graphic elements">
+    <div class="label"><span class="num">26</span>Graphic elements — locked</div>
+    <div>
+      <h2>The studio's punctuation. <em>A small kit of marks that does the rest of the talking.</em></h2>
+      <p class="lead">Beyond the wordmark and the photograph, Soglia speaks in a handful of repeatable graphic devices — borrowed from the post office and the printed page rather than the flower shop. They carry the brand on surfaces too small or too quiet for the logo: the corner of a card, the foot of a page, the seam of a wrap. Used consistently, they become as recognisable as the mark itself.</p>
+
+      <!-- The kit -->
+      <h2 style="margin-top:56px">The threshold rule. <em>The one device that survived Phase 7.</em></h2>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:24px">
+        <div style="background:#F3EFE7; padding:32px 28px; display:flex; flex-direction:column">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">Primary · double rule</div>
+          <div style="padding:30px 0 26px"><div style="height:1.5px; background:#1B1A18; margin-bottom:7px"></div><div style="height:1.5px; background:#1B1A18"></div></div>
+          <div style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.5; color:var(--ink-soft)">Section dividers, the seam on packaging. The default.</div>
+        </div>
+        <div style="background:#F3EFE7; padding:32px 28px; display:flex; flex-direction:column">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">Tick · centred</div>
+          <div style="padding:30px 0 26px; display:flex; align-items:center; gap:0"><div style="height:1px; background:#1B1A18; flex:1"></div><div style="width:5px; height:5px; background:#5A1A1A; transform:rotate(45deg); margin:0 10px"></div><div style="height:1px; background:#1B1A18; flex:1"></div></div>
+          <div style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.5; color:var(--ink-soft)">Closes a passage. The oxblood lozenge marks the threshold point.</div>
+        </div>
+        <div style="background:#F3EFE7; padding:32px 28px; display:flex; flex-direction:column">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">Folio companion</div>
+          <div style="padding:26px 0 22px; display:flex; align-items:baseline; gap:12px"><span style="font-family:'Inconsolata',monospace; font-weight:500; font-size:22px; letter-spacing:0.04em; color:#5A1A1A">14</span><div style="height:1px; background:#1B1A18; flex:1"></div><span style="font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">No. xiv</span></div>
+          <div style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.5; color:var(--ink-soft)">Sits at the foot of every page. Number, rule, edition.</div>
+        </div>
+      </div>
+
+      <!-- Postal vocabulary -->
+      <h2 style="margin-top:56px">Postal vocabulary. <em>Post office, not heritage seal.</em></h2>
+      <p style="max-width:60ch">You logged this early: the brand's physical cues read post-office, not wax-and-warrant. Postmarks, postage rules, edition stamps, address blocks. These are the textures that show up on packaging in Phase 13 — set here as a system.</p>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:24px">
+        <!-- postmark -->
+        <div style="background:#F3EFE7; border:1px solid var(--rule); padding:28px; display:flex; flex-direction:column; align-items:center; gap:14px">
+          <div style="width:104px; height:104px; border-radius:50%; border:1.5px solid #5A1A1A; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; color:#5A1A1A">
+            <span style="font-family:'Inconsolata',monospace; font-size:8.5px; letter-spacing:0.18em; text-transform:uppercase">Soglia · UAE</span>
+            <span style="width:54px; height:1px; background:#5A1A1A"></span>
+            <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:20px; line-height:1">xiv</span>
+            <span style="width:54px; height:1px; background:#5A1A1A"></span>
+            <span style="font-family:'Inconsolata',monospace; font-size:8.5px; letter-spacing:0.18em; text-transform:uppercase">May 2026</span>
+          </div>
+          <span style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">Postmark</span>
+        </div>
+        <!-- edition stamp -->
+        <div style="background:#F3EFE7; border:1px solid var(--rule); padding:28px; display:flex; flex-direction:column; align-items:center; gap:14px">
+          <div style="width:84px; height:104px; border:1.5px solid #1B1A18; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:8px; background:repeating-linear-gradient(45deg,transparent 0,transparent 5px,oklch(82% 0.008 85/0.7) 5px,oklch(82% 0.008 85/0.7) 6px),var(--bone)">
+            <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:30px; line-height:0.9; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span><span style="font-weight:300">.</span></span>
+            <span style="width:40px; height:1px; background:#1B1A18"></span>
+            <span style="font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.12em; color:#5A1A1A">No. 14</span>
+          </div>
+          <span style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">Edition stamp</span>
+        </div>
+        <!-- address block -->
+        <div style="background:#F3EFE7; border:1px solid var(--rule); padding:28px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px">
+          <div style="width:100%; display:flex; flex-direction:column; gap:9px">
+            <div style="font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A; padding-bottom:7px; border-bottom:1px solid #1B1A18">To the threshold of</div>
+            <div style="height:1px; background:var(--rule)"></div>
+            <div style="height:1px; background:var(--rule)"></div>
+            <div style="height:1px; background:var(--rule)"></div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px"><span style="font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft)">Sharjah</span><span style="font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.14em; color:var(--ink-soft)">·</span></div>
+          </div>
+          <span style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">Address block</span>
+        </div>
+      </div>
+
+      <!-- Metadata strip -->
+      <h2 style="margin-top:56px">The metadata strip. <em>The studio's running header.</em></h2>
+      <p style="max-width:60ch">Lifted from the masthead, used everywhere a surface needs a quiet line of authorship. Always Inconsolata, always tracked, always small.</p>
+      <div style="border-top:1px solid var(--ink); border-bottom:1px solid var(--rule); padding:14px 0; margin-top:20px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">
+        <span>Soglia · Floristry</span>
+        <span style="text-align:center">Plate 14 · Sharjah</span>
+        <span style="text-align:right; color:#5A1A1A">No. xiv · 2026</span>
+      </div>
+
+      <!-- Don'ts -->
+      <h2 style="margin-top:48px">Don'ts. <em>Devices, not decoration.</em></h2>
+      <ul style="list-style:none; padding:0; margin:24px 0 8px">
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't add devices that aren't in this kit. No corner flourishes, no botanical line-art, no ornamental borders. The kit is closed.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't render the postmark or stamp in gold, foil, or embossed wax. Post office, not royal warrant — they print flat in ink or oxblood.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't let the threshold rule thicken into a bar or band. It is a hairline event, not a block of colour.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't set the metadata strip in Cormorant or Inter. Marginalia is Inconsolata's job, always.</li>
+        <li style="padding:14px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.55; color:var(--ink)">Don't fake the edition number. Issue and plate numbers are real and sequential — they're a record, not a graphic flourish.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 27 In application -->
+  <section class="section" data-screen-label="29 In application">
+    <div class="label"><span class="num">27</span>In application — locked</div>
+    <div>
+      <h2>The system, assembled. <em>Where the decisions stop being theory.</em></h2>
+      <p class="lead">Everything locked so far — wordmark, palette, type, devices — meets the surfaces a customer actually touches. These are flat layouts, not mockups: the design as it leaves the studio, before it's photographed in the world.</p>
+
+      <!-- Business card -->
+      <h2 style="margin-top:56px">Business card. <em>Ink one side, oxblood the other.</em></h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px">
+        <div style="background:#F3EFE7; border:1px solid var(--rule); aspect-ratio:85/55; padding:26px; display:flex; flex-direction:column; justify-content:space-between">
+          <div style="font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.26em; text-transform:uppercase; color:#5A1A1A">Floristry · Sharjah</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:46px; letter-spacing:-0.02em; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></div>
+          <div style="display:flex; justify-content:space-between; align-items:flex-end"><span style="font-family:'Inter',sans-serif; font-size:11px; color:var(--ink-soft)">soglia.studio</span><span style="font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">No. xiv</span></div>
+        </div>
+        <div style="background:#5A1A1A; border:1px solid #5A1A1A; aspect-ratio:85/55; padding:26px; display:flex; flex-direction:column; justify-content:space-between; color:#F3EFE7">
+          <div style="font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.26em; text-transform:uppercase; color:rgba(243,239,231,0.7)">For the moments at the door</div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <span style="font-family:'Inter',sans-serif; font-size:12.5px; color:#F3EFE7">Layla — founder, florist</span>
+            <span style="font-family:'Inter',sans-serif; font-size:12px; color:rgba(243,239,231,0.78)">+971 ·  hello@soglia.studio</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px"><div style="height:1px; background:rgba(243,239,231,0.5); flex:1"></div><span style="font-family:'Cormorant Garamond',serif; font-size:18px"><span style="font-style:normal; font-weight:300">S</span><span style="font-weight:300">.</span></span></div>
+        </div>
+      </div>
+
+      <!-- Web header + postcard -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px">
+        <!-- web header -->
+        <div>
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:12px">Web header</div>
+          <div style="background:var(--bone); border:1px solid var(--rule)">
+            <div style="display:flex; align-items:center; justify-content:space-between; padding:18px 22px; border-bottom:1px solid var(--rule)">
+              <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:26px; letter-spacing:-0.02em; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></span>
+              <span style="display:flex; gap:22px; font-family:'Inter',sans-serif; font-size:12px; letter-spacing:0.04em; color:var(--ink-soft)"><span>Shop</span><span>Subscriptions</span><span>The studio</span><span style="color:#5A1A1A">Bag (0)</span></span>
+            </div>
+            <div style="padding:30px 22px 34px"><div style="font-family:'Cormorant Garamond',serif; font-size:36px; line-height:1; letter-spacing:-0.015em; color:#1B1A18">The last white orchid<span style="font-style:italic; color:var(--ink-soft)">, this week.</span></div></div>
+          </div>
+        </div>
+        <!-- postcard -->
+        <div>
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:12px">Loyalty postcard</div>
+          <div style="background:#F3EFE7; border:1px solid var(--rule); aspect-ratio:5/3.35; padding:20px; display:grid; grid-template-columns:1fr 96px; gap:18px">
+            <div style="display:flex; flex-direction:column; justify-content:space-between">
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:17px; line-height:1.3; color:#5A1A1A; max-width:30ch">A studio note. One stem, set aside, with your name on it.</div>
+              <div style="font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-soft)">Soglia · No. xiv · 2026</div>
+            </div>
+            <div style="border-left:1px solid #1B1A18; padding-left:14px; display:flex; flex-direction:column; justify-content:space-between">
+              <div style="width:40px; height:40px; border-radius:50%; border:1px solid #5A1A1A; display:flex; align-items:center; justify-content:center; align-self:flex-end"><span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:13px; color:#5A1A1A">xiv</span></div>
+              <div style="display:flex; flex-direction:column; gap:7px"><div style="height:1px; background:var(--rule)"></div><div style="height:1px; background:var(--rule)"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Founder's letter -->
+      <h2 style="margin-top:56px">The founder's letter. <em>The one place cobalt appears.</em></h2>
+      <div style="background:var(--bone); border:1px solid var(--rule); padding:44px 48px; margin-top:24px; max-width:760px">
+        <div style="font-family:'Inconsolata',monospace; font-size:9.5px; letter-spacing:0.24em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:20px">A letter · Sharjah · May 2026</div>
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:20px; line-height:1.5; color:#1B1A18; margin:0 0 16px; max-width:54ch">There is a moment at every door — before the knock, before the answer — where one life is about to become another. Soglia exists for that moment. Not to fill a room, but to mark a threshold.</p>
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:20px; line-height:1.5; color:#1B1A18; margin:0 0 28px; max-width:54ch">Every order leaves here with a name on it and a date it was made. This is the fourteenth.</p>
+        <div style="display:flex; align-items:center; gap:14px"><span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:32px; color:#1F3A6B">Layla</span><span style="width:44px; height:44px; border:1px solid #1F3A6B; display:flex; align-items:center; justify-content:center"><span style="font-family:'Cormorant Garamond',serif; font-size:22px; color:#1F3A6B"><span style="font-style:normal; font-weight:300">S</span><span style="font-weight:300">.</span></span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 28 Mockups -->
+  <section class="section" data-screen-label="30 Mockups">
+    <div class="label"><span class="num">28</span>Mockups — in review</div>
+    <div>
+      <h2>The brand in the world. <em>Placeholders for the real shoot.</em></h2>
+      <p class="lead">The same surfaces, photographed in context rather than drawn flat. These plates are stand-ins — striped placeholders for the production photography commissioned against the Phase 9 brief. They show placement and scale, not final imagery.</p>
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:24px">
+        <div>
+          <div style="aspect-ratio:4/3; background:linear-gradient(125deg,oklch(58% 0.026 50),oklch(36% 0.02 34)); position:relative; overflow:hidden; border:1px solid var(--rule)">
+            <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,oklch(28% 0.014 40/0.22) 14px,oklch(28% 0.014 40/0.22) 15px)"></div>
+            <div style="position:absolute; bottom:20px; left:22px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:34px; color:#F3EFE7"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></div>
+            <div style="position:absolute; top:16px; right:18px; font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(243,239,231,0.8)">Plate · Storefront</div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; color:var(--ink-soft); margin-top:12px">Shopfront fascia — wordmark reversed, descriptor below, set into the glass.</div>
+        </div>
+        <div>
+          <div style="aspect-ratio:4/3; background:linear-gradient(125deg,oklch(64% 0.022 64),oklch(42% 0.018 46)); position:relative; overflow:hidden; border:1px solid var(--rule)">
+            <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,oklch(30% 0.014 50/0.2) 14px,oklch(30% 0.014 50/0.2) 15px)"></div>
+            <div style="position:absolute; bottom:20px; left:22px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:30px; color:#F3EFE7"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></div>
+            <div style="position:absolute; top:16px; right:18px; font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(243,239,231,0.8)">Plate · Carrier</div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; color:var(--ink-soft); margin-top:12px">The carry bag — kraft paper, single ink hit, threshold seam down the side.</div>
+        </div>
+        <div>
+          <div style="aspect-ratio:4/3; background:linear-gradient(125deg,oklch(60% 0.028 48),oklch(38% 0.022 32)); position:relative; overflow:hidden; border:1px solid var(--rule)">
+            <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,oklch(28% 0.014 40/0.22) 14px,oklch(28% 0.014 40/0.22) 15px)"></div>
+            <div style="position:absolute; bottom:20px; left:22px; width:46px; height:46px; background:#5A1A1A; display:flex; align-items:center; justify-content:center"><span style="font-family:'Cormorant Garamond',serif; font-size:24px; color:#F3EFE7"><span style="font-style:normal; font-weight:300">S</span><span style="font-weight:300">.</span></span></div>
+            <div style="position:absolute; top:16px; right:18px; font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(243,239,231,0.8)">Plate · The box</div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; color:var(--ink-soft); margin-top:12px">The order box — monogram seal on the flap, postmark on the lid.</div>
+        </div>
+        <div>
+          <div style="aspect-ratio:4/3; background:linear-gradient(125deg,oklch(70% 0.016 70),oklch(48% 0.014 52)); position:relative; overflow:hidden; border:1px solid var(--rule)">
+            <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,oklch(34% 0.012 50/0.18) 14px,oklch(34% 0.012 50/0.18) 15px)"></div>
+            <div style="position:absolute; bottom:20px; left:22px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:30px; color:#F3EFE7"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></div>
+            <div style="position:absolute; top:16px; right:18px; font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(243,239,231,0.8)">Plate · The issue</div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.5; color:var(--ink-soft); margin-top:12px">The printed issue — masthead lockup, plate photography, folio at the foot.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 29 Packaging -->
+  <section class="section" data-screen-label="31 Packaging">
+    <div class="label"><span class="num">29</span>Packaging — locked</div>
+    <div>
+      <h2>Post office, made of paper. <em>The wrap is part of the gift.</em></h2>
+      <p class="lead">The packaging direction you logged in Phase 5: not wax stamps and ribbon, but postcards, postal stickers, post-office vocabulary. Every order — including the smallest — leaves in this system. No plastic, no glitter cellophane, no thin tissue.</p>
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:24px">
+        <!-- the wrap -->
+        <div style="background:#F3EFE7; padding:34px 30px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#5A1A1A">The wrap</div>
+          <div style="margin:20px 0; height:96px; background:repeating-linear-gradient(90deg,transparent 0,transparent 22px,oklch(82% 0.008 85/0.6) 22px,oklch(82% 0.008 85/0.6) 23px),var(--bone); border:1px solid var(--rule); position:relative"><div style="position:absolute; top:0; bottom:0; left:50%; width:3px; background:#1B1A18; transform:translateX(-50%)"></div><div style="position:absolute; top:0; bottom:0; left:calc(50% - 6px); width:1px; background:#1B1A18"></div></div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.55; color:var(--ink-soft)">Ribbed kraft paper, closed with the threshold seam running the length of the parcel. The seam is structural and graphic at once.</div>
+        </div>
+        <!-- the sticker seal -->
+        <div style="background:#F3EFE7; padding:34px 30px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#5A1A1A">The seal · postal sticker</div>
+          <div style="margin:20px 0; height:96px; display:flex; align-items:center; justify-content:center"><div style="width:84px; height:84px; border-radius:50%; border:1.5px solid #5A1A1A; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; color:#5A1A1A; background:var(--bone)"><span style="font-family:'Inconsolata',monospace; font-size:7.5px; letter-spacing:0.16em; text-transform:uppercase">Soglia · UAE</span><span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:18px; line-height:1">xiv</span><span style="font-family:'Inconsolata',monospace; font-size:7.5px; letter-spacing:0.16em; text-transform:uppercase">2026</span></div></div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.55; color:var(--ink-soft)">A printed paper sticker, not wax — flat oxblood ink, perforated edge. Seals the wrap and dates the order.</div>
+        </div>
+        <!-- the message card -->
+        <div style="background:#F3EFE7; padding:34px 30px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#5A1A1A">The message card</div>
+          <div style="margin:20px 0; height:96px; border:1px solid var(--rule); background:var(--bone); padding:14px 16px; display:flex; flex-direction:column; justify-content:space-between"><span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:15px; color:#1B1A18">Written for one person, one threshold.</span><div style="display:flex; flex-direction:column; gap:6px"><div style="height:1px; background:var(--rule)"></div><div style="height:1px; background:var(--rule)"></div></div></div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.55; color:var(--ink-soft)">The card is the message, never a label. Cormorant prompt at the top, ruled lines for a real hand below.</div>
+        </div>
+        <!-- the care slip -->
+        <div style="background:#F3EFE7; padding:34px 30px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:#5A1A1A">The care slip</div>
+          <div style="margin:20px 0; height:96px; border:1px solid var(--rule); background:var(--bone); padding:14px 16px; display:flex; flex-direction:column; gap:8px"><span style="font-family:'Inconsolata',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">How to keep it · Plate xiv</span><span style="font-family:'Inter',sans-serif; font-size:11.5px; line-height:1.5; color:var(--ink-soft)">Cool water, cut on a slant, out of direct sun. Three lines, no more.</span></div>
+          <div style="font-family:'Inter',sans-serif; font-size:12.5px; line-height:1.55; color:var(--ink-soft)">Utility voice in Inter, metadata in Inconsolata. The one piece that's purely functional — kept short and plain.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 30 Dos and don'ts -->
+  <section class="section" data-screen-label="32 Dos and don'ts">
+    <div class="label"><span class="num">30</span>Dos &amp; don'ts</div>
+    <div>
+      <h2>The whole system, on one page. <em>The rules that keep it Soglia.</em></h2>
+      <p class="lead">Every phase carried its own hard rules. Here they are pulled into one place — the short version a printer, a partner, or a new hire can hold without reading the full kit.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:28px">
+        <div style="background:#F3EFE7; padding:34px 32px">
+          <div style="font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#1B1A18; margin-bottom:8px">Always</div>
+          <ul style="list-style:none; padding:0; margin:0">
+            <li style="padding:13px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; line-height:1.5; color:var(--ink)">Lead with paper and ink. Oxblood is the single public accent, used sparingly.</li>
+            <li style="padding:13px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; line-height:1.5; color:var(--ink)">Keep the wordmark's upright S and full stop. The type is the mark.</li>
+            <li style="padding:13px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; line-height:1.5; color:var(--ink)">Write the studio's voice in Cormorant; the customer's tasks in Inter; metadata in Inconsolata.</li>
+            <li style="padding:13px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; line-height:1.5; color:var(--ink)">Shoot one subject in side light, with air for the type. Caption every plate.</li>
+            <li style="padding:13px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; line-height:1.5; color:var(--ink)">Join two marks only with the threshold rule. Equal air, equal weight.</li>
+            <li style="padding:13px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; line-height:1.5; color:var(--ink)">Date and number every order. The record is part of the brand.</li>
+          </ul>
+        </div>
+        <div style="background:#F3EFE7; padding:34px 32px">
+          <div style="font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A; margin-bottom:8px">Never</div>
+          <ul style="list-style:none; padding:0; margin:0">
+            <li style="padding:13px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; line-height:1.5; color:var(--ink)">Add a symbol, flourish, or fourth colour, font, or device. Every kit is closed.</li>
+            <li style="padding:13px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; line-height:1.5; color:var(--ink)">Use cobalt in public. It is the founder's private mark — three appearances, total.</li>
+            <li style="padding:13px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; line-height:1.5; color:var(--ink)">Centre the mark on a photo, or sit it on a scrim. Corner, reversed, clear.</li>
+            <li style="padding:13px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; line-height:1.5; color:var(--ink)">Tint photography toward oxblood. The image keeps true colour.</li>
+            <li style="padding:13px 0; border-top:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; line-height:1.5; color:var(--ink)">Reach for gold, foil, wax, ribbon, or pastel. Post office, not heritage seal.</li>
+            <li style="padding:13px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; line-height:1.5; color:var(--ink)">Stretch, rotate, recolour, or let a partner restyle the mark.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 31 Final kit -->
+  <section class="section" data-screen-label="33 Final kit">
+    <div class="label"><span class="num">31</span>Final kit</div>
+    <div>
+      <h2>Soglia, at a glance. <em>Fifteen phases, one identity.</em></h2>
+      <p class="lead">The build is complete. Every decision below is locked and shown in full earlier in this document. This is the cover sheet — the brand in a single breath.</p>
+
+      <!-- at a glance grid -->
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:28px">
+        <div style="background:#F3EFE7; padding:36px 32px; display:flex; flex-direction:column; gap:18px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">The mark</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:64px; line-height:0.9; letter-spacing:-0.02em; color:#1B1A18"><span style="font-style:normal; font-weight:300">S</span>oglia<span style="font-style:normal; font-weight:300">.</span></div>
+          <div style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.55; color:var(--ink-soft)">Wordmark-led. Italic Cormorant, upright S and point. The threshold made of type.</div>
+        </div>
+        <div style="background:#F3EFE7; padding:36px 32px; display:flex; flex-direction:column; gap:18px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">The palette</div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule)">
+            <div style="aspect-ratio:1; background:#F3EFE7; display:flex; align-items:flex-end; padding:6px"><span style="font-family:'Inconsolata',monospace; font-size:7.5px; letter-spacing:0.08em; text-transform:uppercase; color:#1B1A18">Paper</span></div>
+            <div style="aspect-ratio:1; background:#1B1A18; display:flex; align-items:flex-end; padding:6px"><span style="font-family:'Inconsolata',monospace; font-size:7.5px; letter-spacing:0.08em; text-transform:uppercase; color:#F3EFE7">Ink</span></div>
+            <div style="aspect-ratio:1; background:#5A1A1A; display:flex; align-items:flex-end; padding:6px"><span style="font-family:'Inconsolata',monospace; font-size:7.5px; letter-spacing:0.08em; text-transform:uppercase; color:#F3EFE7">Ember</span></div>
+            <div style="aspect-ratio:1; background:#1F3A6B; display:flex; align-items:flex-end; padding:6px"><span style="font-family:'Inconsolata',monospace; font-size:7.5px; letter-spacing:0.08em; text-transform:uppercase; color:#F3EFE7">Cobalt</span></div>
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.55; color:var(--ink-soft)">Ink &amp; Ember in public. Cobalt private to the founder.</div>
+        </div>
+        <div style="background:#F3EFE7; padding:36px 32px; display:flex; flex-direction:column; gap:14px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">The voices</div>
+          <div><div style="font-family:'Cormorant Garamond',serif; font-size:28px; color:#1B1A18; line-height:1">Cormorant</div><div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft)">Voice</div></div>
+          <div><div style="font-family:'Inter',sans-serif; font-weight:500; font-size:24px; color:#1B1A18; line-height:1">Inter</div><div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft)">Utility</div></div>
+          <div><div style="font-family:'Inconsolata',monospace; font-weight:500; font-size:22px; color:#1B1A18; line-height:1">Inconsolata</div><div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft)">Metadata</div></div>
+        </div>
+        <div style="background:#F3EFE7; padding:36px 32px; display:flex; flex-direction:column; gap:18px">
+          <div style="font-family:'Inconsolata',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#5A1A1A">The idea</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:26px; line-height:1.32; color:#1B1A18">A floristry studio for the moments at the door. Soglia means threshold.</div>
+          <div style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.55; color:var(--ink-soft)">Editorial, not catalogue. Post office, not heritage seal. The eye decides.</div>
+        </div>
+      </div>
+
+      <!-- what ships -->
+      <h2 style="margin-top:56px">What ships. <em>The handoff inventory.</em></h2>
+      <div style="border-top:1px solid var(--ink); margin-top:20px">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 56px">
+          <div style="display:flex; justify-content:space-between; padding:13px 0; border-bottom:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; color:var(--ink)">Wordmark, monogram, lockups <span style="font-family:'Inconsolata',monospace; font-size:11px; color:#5A1A1A">SVG · all colourways</span></div>
+          <div style="display:flex; justify-content:space-between; padding:13px 0; border-bottom:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; color:var(--ink)">Colour tokens <span style="font-family:'Inconsolata',monospace; font-size:11px; color:#5A1A1A">HEX · OKLCH</span></div>
+          <div style="display:flex; justify-content:space-between; padding:13px 0; border-bottom:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; color:var(--ink)">Type licences &amp; scale <span style="font-family:'Inconsolata',monospace; font-size:11px; color:#5A1A1A">3 families</span></div>
+          <div style="display:flex; justify-content:space-between; padding:13px 0; border-bottom:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; color:var(--ink)">Graphic-element kit <span style="font-family:'Inconsolata',monospace; font-size:11px; color:#5A1A1A">rules · postal set</span></div>
+          <div style="display:flex; justify-content:space-between; padding:13px 0; border-bottom:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; color:var(--ink)">Photography brief <span style="font-family:'Inconsolata',monospace; font-size:11px; color:#5A1A1A">Phase 9</span></div>
+          <div style="display:flex; justify-content:space-between; padding:13px 0; border-bottom:1px solid var(--rule); font-family:'Inter',sans-serif; font-size:13.5px; color:var(--ink)">Packaging specs <span style="font-family:'Inconsolata',monospace; font-size:11px; color:#5A1A1A">print-ready</span></div>
+        </div>
+      </div>
+
+      <div style="margin-top:48px; padding-top:28px; border-top:1px solid var(--ink); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px">
+        <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:24px; color:#1B1A18">Identity v1 — locked and ready to build on.</span>
+        <span style="font-family:'Inconsolata',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#5A1A1A">Soglia · No. xiv · Sharjah 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Phase index -->
+  <section class="section" data-screen-label="08 Status">
+    <div class="label"><span class="num">00</span>Status</div>
+    <div>
+      <h2>The kit, in order. <em>Where we are, where we're going.</em></h2>
+      <p class="lead">Fifteen phases, all closed. Identity v1 complete.</p>
+      <div class="phase-index">
+        <div class="phase-row" data-status="locked"><span class="pn">01</span><span class="pt">Foundation</span><span class="ps">Locked</span></div>
+        <div class="phase-row" data-status="locked"><span class="pn">02</span><span class="pt">Strategy</span><span class="ps">Locked</span></div>
+        <div class="phase-row" data-status="locked"><span class="pn">03</span><span class="pt">Tone of voice</span><span class="ps">Locked</span></div>
+        <div class="phase-row" data-status="locked"><span class="pn">04</span><span class="pt">Visual territory</span><span class="ps">Locked</span></div>
+        <div class="phase-row" data-status="locked"><span class="pn">05</span><span class="pt">Color palette</span><span class="ps">Locked</span></div>
+        <div class="phase-row" data-status="locked"><span class="pn">06</span><span class="pt">Typography</span><span class="ps">Locked</span></div>
+        <div class="phase-row" data-status="locked"><span class="pn">07</span><span class="pt">Logo system</span><span class="ps">Locked</span></div>
+        <div class="phase-row" data-status="locked"><span class="pn">08</span><span class="pt">Marks &amp; usage</span><span class="ps">Locked</span></div>
+        <div class="phase-row" data-status="locked"><span class="pn">09</span><span class="pt">Imagery</span><span class="ps">Locked</span></div>
+        <div class="phase-row" data-status="locked"><span class="pn">10</span><span class="pt">Graphic elements</span><span class="ps">Locked</span></div>
+        <div class="phase-row" data-status="locked"><span class="pn">11</span><span class="pt">In application</span><span class="ps">Locked</span></div>
+        <div class="phase-row" data-status="locked"><span class="pn">12</span><span class="pt">Mockups</span><span class="ps">In review</span></div>
+        <div class="phase-row" data-status="locked"><span class="pn">13</span><span class="pt">Packaging</span><span class="ps">Locked</span></div>
+        <div class="phase-row" data-status="locked"><span class="pn">14</span><span class="pt">Dos &amp; don'ts</span><span class="ps">Locked</span></div>
+        <div class="phase-row" data-status="locked"><span class="pn">15</span><span class="pt">Final kit</span><span class="ps">Locked</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Soglia Studio — Brand identity build, Sharjah / UAE</div>
+    <div class="right">Identity v1 — complete</div>
+  </footer>
+
+</main>
+</body>
+</html>
