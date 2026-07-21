@@ -64,8 +64,8 @@ Journal moderation is not implemented yet. Submitted notes display immediately i
 ## UI Changes
 
 - Storefront route tree now supports English and Arabic.
-- Navigation includes shop, journal, loyalty, language switch, and bag.
-- Secondary navigation sits inside a compact menu to avoid crowding the header.
+- Desktop navigation shows shop, about, journal, loyalty, contact, language switch, and bag.
+- Smaller screens move primary navigation into a compact menu to avoid crowding the header.
 - Header dropdowns use custom buttons, not native disclosure markers, so no stray browser arrows appear between controls.
 - Arabic surfaces use `سوغليا` for the brand name where text is localized.
 - Product cards use Soglia editorial plate styling.

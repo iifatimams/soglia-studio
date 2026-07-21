@@ -20,7 +20,8 @@ function BrandMark({ locale }: Readonly<{ locale: Locale }>) {
 export function SiteHeader({ locale }: Readonly<{ locale: Locale }>) {
   const copy = dictionary[locale].nav;
   const nextLocale = locale === "en" ? "ar" : "en";
-  const menuItems = [
+  const primaryItems = [
+    { href: `/${locale}/shop`, label: copy.shop },
     { href: `/${locale}/about`, label: copy.about },
     { href: `/${locale}/journal`, label: copy.journal },
     { href: `/${locale}/loyalty`, label: copy.loyalty },
@@ -34,8 +35,16 @@ export function SiteHeader({ locale }: Readonly<{ locale: Locale }>) {
           <BrandMark locale={locale} />
         </Link>
         <nav className="flex items-center gap-5 font-sans text-xs text-ink-soft md:gap-8">
-          <Link href={`/${locale}/shop`}>{copy.shop}</Link>
-          <SiteMenu items={menuItems} label={copy.menu} />
+          <div className="hidden items-center gap-8 md:flex">
+            {primaryItems.map((item) => (
+              <Link className="transition hover:text-ink" href={item.href} key={item.href}>
+                {item.label}
+              </Link>
+            ))}
+          </div>
+          <div className="md:hidden">
+            <SiteMenu items={primaryItems} label={copy.menu} />
+          </div>
           <Link className="font-mono uppercase tracking-meta text-ink" href={`/${nextLocale}`}>
             {nextLocale}
           </Link>
