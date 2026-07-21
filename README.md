@@ -43,4 +43,11 @@ Default local ports:
 
 ## Current State
 
-This is foundation only. Product catalog, checkout, inventory, POS workflows, loyalty cards, blog submissions, payments, auth, and business logic come in later approved modules.
+Module 2 added the Soglia brand-system foundation:
+
+- Shared color, type, radius, and Tailwind tokens.
+- Optimized font loading for storefront and admin.
+- Reusable wordmark and monogram components.
+- Public/private color boundary, with cobalt reserved for founder/admin contexts.
+
+Product catalog, checkout, inventory, POS workflows, loyalty cards, blog submissions, payments, auth, and business logic come in later approved modules.

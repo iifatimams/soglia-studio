@@ -12,6 +12,7 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@soglia/config": "workspace:*",
     "@soglia/ui": "workspace:*",
     "next": "^15.1.4",
     "react": "^19.0.0",

@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     "./env": "./env/index.ts",
+    "./tailwind": "./tailwind/index.ts",
     "./typescript/base": "./typescript/base.json"
   },
   "scripts": {
@@ -16,6 +17,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3",
     "vitest": "^2.1.8"
   }
