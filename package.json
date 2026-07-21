@@ -1,0 +1,34 @@
+{
+  "name": "soglia-studio",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.15.4",
+  "scripts": {
+    "dev": "corepack pnpm --parallel --filter @soglia/storefront --filter @soglia/admin --filter @soglia/api dev",
+    "dev:storefront": "corepack pnpm --filter @soglia/storefront dev",
+    "dev:admin": "corepack pnpm --filter @soglia/admin dev",
+    "dev:api": "corepack pnpm --filter @soglia/api dev",
+    "build": "corepack pnpm -r --if-present build",
+    "lint": "corepack pnpm -r --if-present lint",
+    "typecheck": "corepack pnpm -r --if-present typecheck",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "corepack pnpm -r --if-present test",
+    "test:e2e": "corepack pnpm -r --if-present test:e2e",
+    "db:generate": "corepack pnpm --filter @soglia/db db:generate",
+    "db:migrate": "corepack pnpm --filter @soglia/db db:migrate",
+    "db:seed": "corepack pnpm --filter @soglia/db db:seed"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.18.0",
+    "@types/node": "^22.10.7",
+    "eslint": "^9.18.0",
+    "eslint-config-next": "^15.1.4",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0",
+    "vitest": "^2.1.8"
+  }
+}

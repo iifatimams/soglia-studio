@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@soglia/ui": ["packages/ui/src/index.ts"],
+      "@soglia/ui/*": ["packages/ui/src/*"],
+      "@soglia/config/*": ["packages/config/*"],
+      "@soglia/db": ["packages/db/src/index.ts"],
+      "@soglia/db/*": ["packages/db/src/*"],
+      "@soglia/types": ["packages/types/src/index.ts"],
+      "@soglia/types/*": ["packages/types/src/*"],
+      "@soglia/validation": ["packages/validation/src/index.ts"],
+      "@soglia/validation/*": ["packages/validation/src/*"],
+      "@soglia/integrations": ["packages/integrations/src/index.ts"],
+      "@soglia/integrations/*": ["packages/integrations/src/*"]
+    }
+  }
+}

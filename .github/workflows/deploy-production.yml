@@ -1,0 +1,12 @@
+name: Deploy Production
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Placeholder
+        run: echo "Add production deployment after staging is stable."

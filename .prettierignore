@@ -1,0 +1,14 @@
+.agents
+.git
+.next
+AGENTS.md
+coverage
+dist
+node_modules
+pnpm-lock.yaml
+skills-lock.json
+
+docs/architecture
+docs/brand/brand-kit.html
+docs/discovery
+docs/prd
