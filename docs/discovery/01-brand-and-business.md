@@ -44,6 +44,7 @@ Subscription direction:
 - Subscriptions come after the first flower catalog is working.
 - Subscription customers do not choose the exact weekly flowers.
 - Each week they receive something new, either a ready bouquet or a DIY bunch with instruction cards.
+- Subscription frequency should support weekly and biweekly plans.
 
 Workshop direction:
 
@@ -137,5 +138,4 @@ If loyalty is too hidden, customers may not understand why it matters. If it is 
 
 - Exact reward structure for the loyalty card.
 - Whether delivery starts with all three cities at launch or Sharjah first.
-- Whether subscriptions are weekly only, or weekly and biweekly.
 - Whether workshops require booking, deposits, waitlists, or private events later.

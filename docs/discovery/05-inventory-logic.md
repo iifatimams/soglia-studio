@@ -34,6 +34,7 @@ Finished bouquet inventory should be mixed:
 - Most bouquets are made from components after an order comes in.
 - Some finished bouquets may exist in-store for walk-ins, display, or photography.
 - The system should support both component-based bouquet building and finished bouquet stock when needed.
+- Finished bouquets should have sell-by dates.
 
 Staff should be able to record:
 
@@ -51,6 +52,8 @@ Stock alerts should warn the team when flowers or materials fall below minimum q
 When an order is paid, the system should reserve or deduct the required inventory automatically. Reserved stock should not be available for walk-in/POS orders.
 
 Florists should be allowed to substitute components when recipe items are unavailable. The actual components used should be tracked.
+
+Substitutions should follow a founder-approved manual. The manual should list possible replacements for each type of flower, so florists can make approved substitutions without asking for founder approval each time.
 
 The system should track cost per stem and per material so bouquet cost and margin can be calculated.
 
@@ -84,7 +87,8 @@ For finished bouquets:
 1. Staff creates a finished bouquet from components.
 2. Component inventory is deducted.
 3. Finished bouquet stock increases.
-4. POS or order fulfillment can sell that finished bouquet directly.
+4. A sell-by date is assigned.
+5. POS or order fulfillment can sell that finished bouquet directly.
 
 ## Risks and Tradeoffs
 
@@ -98,9 +102,7 @@ Substitution tracking is important because flower availability changes. The syst
 
 ## Open Questions
 
-- Whether substitutions require founder approval or florist approval is enough.
 - Whether stock alerts should be based on fixed minimums or sales forecasts later.
 - Whether expiry dates are entered manually or calculated from flower type.
 - Whether supplier purchase orders should support partial receiving.
-- Whether finished bouquets should have their own expiry or sell-by date.
 - Whether inventory reservation becomes final deduction at payment, preparation, or completion for accounting reports.

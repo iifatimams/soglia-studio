@@ -60,6 +60,8 @@ Corporate orders, events, and weddings are not in launch scope. They may be cons
 
 Subscriptions should eventually be sold online with recurring payment, tiered prices, and cancellation before a cutoff window, with 5 days before expected payment as the working rule.
 
+Subscription frequency should support weekly and biweekly plans.
+
 ## Operational Workflow
 
 Website orders go straight to confirmed after payment.
@@ -89,6 +91,10 @@ Products are mixed:
 - The system should not assume every displayed style is always ready to pick up immediately.
 
 Custom bouquet requests stay as draft orders until price, details, and timing are confirmed.
+
+Custom orders may use payment links when the order is handled online and payment is needed before bouquet work starts. Some custom orders may require a deposit before preparation.
+
+If an order is cancelled before processing starts, reserved inventory should be released automatically. If the order has already started processing, reserved inventory should not be released automatically and should require staff review.
 
 ## Product Structure
 
@@ -152,6 +158,7 @@ Finished bouquet inventory is mixed:
 
 - Most bouquets are made from components after order.
 - Some finished bouquets can be created for walk-ins, display, or photography.
+- Finished bouquets need sell-by dates.
 
 Staff can record:
 
@@ -167,6 +174,8 @@ Stock alerts should warn when flowers or materials fall below minimum quantity.
 Florists can substitute components when recipe items are unavailable. Actual components used should be tracked.
 
 Cost per stem/material should be tracked so bouquet COGS and margin can be calculated.
+
+Substitutions should follow a founder-approved manual that lists possible replacements for each flower type. Florists can use the manual without asking for approval each time.
 
 ## Admin and Team Roles
 
@@ -366,12 +375,21 @@ MVP should include:
 - Supplier cost tracking.
 - Founder dashboard.
 - Florist/POS role.
+- Launch loyalty card tracking.
+- Loyalty nomination tracking.
 - Coupon codes.
 - UTM capture.
 - GA4.
 - Search Console.
 - Landing pages.
 - Email capture.
+- Blog/community page.
+- Moderated customer submissions.
+- Public approved posts.
+- No-account community submissions.
+- Name and phone collection for founder records.
+- Optional anonymous publishing.
+- Customer-submitted photos.
 - VAT-ready finance records.
 - Daily sales report.
 - Accountant export.
@@ -397,18 +415,10 @@ MVP should not include:
 - First third-party delivery provider.
 - Whether delivery provider has an API.
 - Exact loyalty reward.
-- Whether subscriptions are weekly only or also biweekly.
 - Subscription payment provider.
-- Whether payment links are needed for custom orders.
-- Whether custom orders require deposits in special cases.
 - Final labor/work margin rules by bouquet size.
-- Whether substitutions require founder approval.
-- Whether cancelled orders release reserved inventory automatically.
-- Whether finished bouquets need sell-by dates.
 - Which email provider to use.
 - Which SMS provider to use.
-- Whether community/blog submissions require accounts.
-- Whether customer-submitted content can include photos.
 - Final frontend host.
 - Final backend host.
 - Final PostgreSQL provider.
@@ -425,6 +435,7 @@ Use a narrow, strong MVP:
 - Physical POS.
 - Founder/admin dashboard.
 - Florist workflow.
+- Launch loyalty layer.
 - Inventory and BOM core.
 - Delivery/pickup slots.
 - Basic marketing tracking.

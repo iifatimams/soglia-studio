@@ -14,7 +14,7 @@ Expected payment methods:
 - Apple Pay.
 - In-store card payments.
 - In-store cash payments.
-- Possibly payment links for manual/custom orders later.
+- Payment links for manual/custom orders when online payment is needed before work starts.
 
 In-store payments should support all normal store payment types:
 
@@ -22,6 +22,8 @@ In-store payments should support all normal store payment types:
 - Cash.
 - Apple Pay.
 - Payment links if useful.
+
+Custom orders may sometimes require deposits before preparation.
 
 Refunds should be founder-only at launch. Later, staff may request or process refunds with approval.
 
@@ -129,6 +131,8 @@ The MVP should include finance-ready foundations:
 - Founder-only net margin.
 - Daily closing report.
 - Sales by source.
+- Payment links for custom orders.
+- Deposit tracking for custom orders.
 - Accountant export.
 
 Best accountant export default:
@@ -166,7 +170,6 @@ Net margin is harder than gross margin because it depends on expense quality. Ea
 ## Open Questions
 
 - Final payment gateway.
-- Whether payment links are needed for custom orders.
 - Whether VAT registration is active at launch or only VAT-ready.
 - Exact labor/work margin rules by bouquet size.
 - Whether expenses need approval status.

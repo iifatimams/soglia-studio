@@ -22,6 +22,8 @@ Every bouquet should have a bill of materials / recipe behind it. This should al
 
 Ready-made bouquet styles should be mostly fixed, but flexible when availability problems happen. The preferred model is fixed recipes, with allowed substitutions when stock changes.
 
+Substitutions should be controlled by a founder-approved manual that lists possible replacements for each flower type. Florists can use approved replacements from the manual without asking for founder approval every time.
+
 Flower bunches should always have a fixed stem count.
 
 Launch add-ons should stay flower-related and brand-owned:
@@ -54,7 +56,7 @@ The MVP product model should include:
 - Draft custom orders that become payable only after staff confirmation.
 - Bilingual product fields from day one.
 
-For bouquets, the best default is a fixed base recipe with controlled substitutions. This gives florists enough flexibility without losing inventory and margin tracking.
+For bouquets, the best default is a fixed base recipe with controlled substitutions. This gives florists enough flexibility without losing inventory and margin tracking. The substitution manual keeps that flexibility from becoming guesswork.
 
 ## Risks and Tradeoffs
 
@@ -68,7 +70,6 @@ Bilingual product content must be part of the data model from the beginning. Add
 
 ## Open Questions
 
-- Whether substitutions need manager approval or florist approval is enough.
 - Whether customers should see substitutions before checkout, or only see final bouquet photography/style.
 - Whether limited drops should have hard stock caps or order capacity caps.
 - Whether bouquet recipes should track exact stems, estimated stems, or both.

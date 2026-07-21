@@ -39,6 +39,10 @@ You want a blog/community-style page where people can write about:
 
 This content should be moderated before publishing.
 
+Community/blog submissions should not require customer accounts. The submission form should collect the sender's name and phone number for founder records, but the customer can choose to publish anonymously.
+
+Customer-submitted content can include photos.
+
 SMS should be used only for transactional updates.
 
 WhatsApp should be used only for customer support and order updates at launch.
@@ -66,6 +70,9 @@ Marketing MVP should include:
 - Landing pages.
 - Email capture.
 - Moderated customer/community content.
+- No-account community submissions.
+- Optional anonymous publishing.
+- Customer-submitted photos.
 - Transactional SMS only.
 - WhatsApp support and updates only.
 - Manual campaign spend entry before full ad integrations.
@@ -116,8 +123,6 @@ SEO takes time. Landing pages help only if they match actual search behavior and
 
 - Which email marketing provider to use.
 - Which SMS provider to use for transactional updates.
-- Whether customer-submitted content needs accounts or can be submitted through a form.
-- Whether community/blog posts can include photos.
 - Whether coupon codes can apply to subscriptions later.
 - Whether Google Ads should start with search only or include shopping/performance campaigns later.
 - Whether TikTok Ads should track purchases directly through pixel/server-side events.

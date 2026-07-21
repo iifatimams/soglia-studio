@@ -34,6 +34,10 @@ Launch products are mixed:
 
 Custom bouquet requests should be tracked as draft orders until price, details, and timing are confirmed.
 
+Custom orders may use payment links when handled online and payment is needed before bouquet work begins. Some custom orders may require a deposit before preparation.
+
+If an order is cancelled before processing starts, reserved inventory should be released automatically. If processing has already started, reserved inventory should not be released automatically and should require staff review.
+
 ## Recommended Default
 
 The MVP should use an order workflow like this:
@@ -52,7 +56,7 @@ For custom orders:
 
 1. Staff creates a draft order.
 2. Soglia confirms details, price, date, and slot.
-3. Customer pays.
+3. Customer pays in full or pays the required deposit.
 4. The order becomes confirmed.
 5. Inventory is reserved.
 
@@ -60,7 +64,7 @@ For custom orders:
 
 Automatic confirmation makes checkout feel clean, but inventory accuracy must be strong. If the system allows overselling, the brand promise breaks quickly.
 
-Reserving inventory at payment is the right default, but cancelled orders need a clean release flow so stock returns to availability.
+Reserving inventory at payment is the right default. Cancelled orders need two paths: automatic release before processing, staff-reviewed release after processing starts.
 
 Delivery automation depends on the third-party provider. If the provider does not have a reliable API, dispatch may start as a manual admin action.
 
@@ -75,4 +79,3 @@ Internal delivery should be supported as an option because it will happen someti
 - How many orders the florist team can handle per slot.
 - Whether slot capacity differs between bouquets, bunches, and custom orders.
 - Whether inventory reservation should become final deduction at payment or at completion for accounting reports.
-- Whether cancelled orders automatically release reserved stock or require staff confirmation.
