@@ -12,7 +12,7 @@ export function ProductCard({ locale, product }: Readonly<{ locale: Locale; prod
   return (
     <article className="grid gap-4 border-t border-rule pt-4">
       <Link href={`/${locale}/shop/${product.slug}`}>
-        <ProductPlate product={product} label={product.name[locale]} />
+        <ProductPlate product={product} label={product.name[locale]} locale={locale} />
       </Link>
       <div className="grid gap-3">
         <div className="flex items-start justify-between gap-4">

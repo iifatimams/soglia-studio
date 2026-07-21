@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import type { Locale } from "@soglia/types";
 import { AddToCartButton } from "../../../../components/add-to-cart-button";
 import { ProductPlate } from "../../../../components/product-plate";
-import { formatPrice, getProduct, products } from "../../../../lib/catalog";
+import { formatPrice, getProduct, getProductAddOns, products } from "../../../../lib/catalog";
 import { dictionary, isLocale, locales } from "../../../../lib/i18n";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
@@ -44,6 +44,7 @@ export default async function ProductPage({ params }: PageProps) {
       <ProductPlate
         product={product}
         label={product.name[locale]}
+        locale={locale}
         className="md:sticky md:top-28"
       />
       <section className="border-t border-ink pt-5">
@@ -78,6 +79,25 @@ export default async function ProductPage({ params }: PageProps) {
               {copy.availability}
             </h2>
             <p className="mt-4 text-sm leading-6 text-ink-soft">{product.note[locale]}</p>
+          </div>
+        </div>
+        <div className="mt-10 border-t border-rule pt-7">
+          <h2 className="font-mono text-xs uppercase tracking-meta text-ink">{copy.addOns}</h2>
+          <div className="mt-4 grid gap-3">
+            {getProductAddOns(product.slug).map((addOn) => (
+              <div
+                className="grid gap-3 border border-rule bg-bone p-4 md:grid-cols-[1fr_auto]"
+                key={addOn.type}
+              >
+                <div>
+                  <p className="font-display text-2xl leading-none text-ink">
+                    {addOn.name[locale]}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-ink-soft">{addOn.note[locale]}</p>
+                </div>
+                {addOn.product ? <AddToCartButton locale={locale} product={addOn.product} /> : null}
+              </div>
+            ))}
           </div>
         </div>
         <AddToCartButton className="mt-10" locale={locale} product={product} />

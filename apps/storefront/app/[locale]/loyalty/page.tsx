@@ -29,8 +29,9 @@ export default async function LoyaltyPage({ params }: PageProps) {
           {copy.title}
         </h1>
         <p className="mt-5 max-w-xl text-lg leading-8 text-ink-soft">{copy.intro}</p>
+        <p className="mt-5 max-w-xl text-base leading-7 text-ink-soft">{copy.detail}</p>
         <Button asChild className="mt-8">
-          <Link href={`/${locale}/journal`}>{copy.cta}</Link>
+          <Link href={`/${locale}/contact`}>{copy.cta}</Link>
         </Button>
       </section>
       <aside className="flex aspect-[5/3.2] flex-col justify-between border border-rule bg-bone p-8">

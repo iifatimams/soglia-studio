@@ -1,6 +1,6 @@
 import type { Locale } from "@soglia/types";
 
-export type ProductKind = "bouquet" | "bunch" | "vase" | "card" | "wrap" | "oasis";
+export type ProductKind = "bouquet" | "bunch" | "vase" | "wrap" | "oasis";
 
 export interface Product {
   slug: string;
@@ -78,27 +78,6 @@ export const products: Product[] = [
       en: "Sold alone or with flowers.",
       ar: "تباع وحدها أو مع الزهور."
     }
-  },
-  {
-    slug: "message-card-set",
-    kind: "card",
-    collection: "objects",
-    price: 35,
-    limited: false,
-    imageTone: "card",
-    name: { en: "Message card set", ar: "مجموعة بطاقات" },
-    description: {
-      en: "Ruled cards for a note written to one person.",
-      ar: "بطاقات مسطرة لرسالة مكتوبة لشخص واحد."
-    },
-    included: {
-      en: ["5 cards"],
-      ar: ["5 بطاقات"]
-    },
-    note: {
-      en: "Add to a bouquet or keep in the drawer.",
-      ar: "أضيفيها إلى باقة أو احتفظي بها."
-    }
   }
 ];
 
@@ -143,4 +122,38 @@ export function getProduct(slug: string) {
 
 export function getCollection(slug: string) {
   return collections.find((collection) => collection.slug === slug);
+}
+
+export function getProductAddOns(productSlug: string) {
+  const product = getProduct(productSlug);
+  const vase = getProduct("threshold-vase");
+  const addOns: Array<{
+    type: "vase" | "message-card";
+    name: Record<Locale, string>;
+    note: Record<Locale, string>;
+    product?: Product;
+  }> = [
+    {
+      type: "message-card",
+      name: { en: "Message card", ar: "بطاقة رسالة" },
+      note: {
+        en: "Available with the order if you write a note.",
+        ar: "متاحة مع الطلب إذا كتبتِ رسالة."
+      }
+    }
+  ];
+
+  if (product && product.kind !== "vase" && vase) {
+    addOns.unshift({
+      type: "vase",
+      name: vase.name,
+      note: {
+        en: "Add a vase for the arrangement or weekly stems.",
+        ar: "أضيفي مزهرية للتنسيق أو للسيقان الأسبوعية."
+      },
+      product: vase
+    });
+  }
+
+  return addOns;
 }

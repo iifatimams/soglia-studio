@@ -54,7 +54,7 @@ export default async function HomePage({ params }: PageProps) {
         <div className="relative min-h-[480px] overflow-hidden border border-rule bg-[linear-gradient(135deg,#f3efe7,#d2c8b9_42%,#5a1a1a)]">
           <div className="absolute inset-0 bg-[repeating-linear-gradient(135deg,transparent_0,transparent_18px,rgba(27,26,24,0.12)_18px,rgba(27,26,24,0.12)_19px)]" />
           <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-6 text-paper">
-            <p className="font-display text-6xl italic leading-none">No. 01</p>
+            <p className="font-display text-6xl italic leading-none">{copy.issueNumber}</p>
             <p className="max-w-36 text-right font-mono text-[10px] uppercase leading-5 tracking-meta">
               {copy.proof}
             </p>

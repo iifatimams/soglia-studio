@@ -5,7 +5,7 @@ import { locales } from "../lib/i18n";
 const baseUrl = "https://soglia.studio";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/shop", "/journal", "/loyalty", "/checkout"];
+  const staticRoutes = ["", "/shop", "/journal", "/loyalty", "/contact", "/checkout"];
 
   return [
     ...locales.flatMap((locale) =>

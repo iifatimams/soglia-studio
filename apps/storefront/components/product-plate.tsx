@@ -13,8 +13,11 @@ const toneClassName: Record<Product["imageTone"], string> = {
 export function ProductPlate({
   product,
   label,
+  locale = "en",
   className
-}: Readonly<{ product: Product; label: string; className?: string }>) {
+}: Readonly<{ product: Product; label: string; locale?: "en" | "ar"; className?: string }>) {
+  const monogram = locale === "ar" ? "س." : "S.";
+
   return (
     <div
       aria-label={label}
@@ -27,7 +30,7 @@ export function ProductPlate({
     >
       <div className="absolute inset-0 bg-[repeating-linear-gradient(135deg,transparent_0,transparent_18px,rgba(27,26,24,0.13)_18px,rgba(27,26,24,0.13)_19px)]" />
       <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
-        <span className="font-display text-4xl italic leading-none text-paper">S.</span>
+        <span className="font-display text-4xl italic leading-none text-paper">{monogram}</span>
         <span className="max-w-28 text-right font-mono text-[10px] uppercase tracking-meta text-paper/85">
           {label}
         </span>

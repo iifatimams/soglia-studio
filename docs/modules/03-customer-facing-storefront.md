@@ -16,8 +16,10 @@ Create the first customer-facing storefront experience without connecting paymen
 - Shop listing page using typed mock products.
 - Product detail pages using typed mock products.
 - Collection pages.
+- Contact page shell for loyalty and order inquiries.
 - Cart drawer with local browser storage.
 - Add-to-cart behavior for mock products.
+- Product-page add-ons, including paid vase add-on and free message-card option.
 - Checkout preview page.
 - Journal/community page with local submission storage and local published-note display.
 - Private launch loyalty page.
@@ -35,6 +37,7 @@ Create the first customer-facing storefront experience without connecting paymen
 - Admin catalog management.
 - Blog moderation backend.
 - Real media storage.
+- Real contact form delivery.
 
 ## Psychology Notes
 
@@ -58,10 +61,13 @@ Journal moderation is not implemented yet. Submitted notes display immediately i
 
 - Storefront route tree now supports English and Arabic.
 - Navigation includes shop, journal, loyalty, language switch, and bag.
+- Arabic surfaces use `سوغليا` for the brand name where text is localized.
 - Product cards use Soglia editorial plate styling.
+- Arabic product plates use `س.` instead of `S.`.
 - The cart drawer stores selected mock products in `localStorage`.
 - The cart no longer overwrites stored items when switching between `/en` and `/ar`.
 - Journal submissions store entries in `localStorage` and render on the journal page.
+- Message cards are not modeled as paid products. They appear as a free order option on product pages.
 
 ## Validation Commands
 
@@ -79,11 +85,13 @@ corepack pnpm build
 - `/en` and `/ar` load.
 - `/en/shop` and `/ar/shop` load.
 - Product detail pages load from product cards.
+- Product detail pages show add-ons.
 - Add a product to the bag and refresh. The bag should keep the item.
 - Remove an item from the bag.
 - Continue from bag to checkout preview.
 - Switch from `/en` to `/ar` and confirm the bag count does not reset.
 - Submit a journal note. The success message should appear and the note should render on the page.
+- Loyalty page contact action should go to `/contact`, not `/journal`.
 - Loyalty page loads and does not expose cobalt as a public storefront color.
 
 ## Commit Message
