@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import type { Locale } from "@soglia/types";
 import { Button } from "@soglia/ui";
 import { dictionary } from "../lib/i18n";
+import { defaultPhoneCountry, phoneCountries } from "../lib/phone-countries";
 
 interface Submission {
+  countryIso: string;
   name: string;
   phone: string;
   story: string;
@@ -25,6 +27,9 @@ export function JournalSubmissionForm({ locale }: Readonly<{ locale: Locale }>) 
   const copy = dictionary[locale].journal;
   const [sent, setSent] = useState(false);
   const [submissions, setSubmissions] = useState<Submission[]>([]);
+  const [selectedCountryIso, setSelectedCountryIso] = useState("AE");
+  const selectedCountry =
+    phoneCountries.find((country) => country.iso === selectedCountryIso) ?? defaultPhoneCountry;
 
   useEffect(() => {
     const stored = window.localStorage.getItem(storageKey);
@@ -47,9 +52,13 @@ export function JournalSubmissionForm({ locale }: Readonly<{ locale: Locale }>) 
         onSubmit={(event) => {
           event.preventDefault();
           const formData = new FormData(event.currentTarget);
+          const countryIso = getTextField(formData, "countryIso") || selectedCountry.iso;
+          const country =
+            phoneCountries.find((item) => item.iso === countryIso) ?? defaultPhoneCountry;
           const submission: Submission = {
+            countryIso: country.iso,
             name: getTextField(formData, "name"),
-            phone: getTextField(formData, "phone"),
+            phone: `${country.callingCode} ${getTextField(formData, "phone")}`,
             story: getTextField(formData, "story"),
             anonymous: formData.get("anonymous") === "on",
             createdAt: new Date().toISOString()
@@ -67,17 +76,39 @@ export function JournalSubmissionForm({ locale }: Readonly<{ locale: Locale }>) 
             <span className="font-mono text-[11px] uppercase tracking-meta text-ink-soft">
               {copy.name}
             </span>
-            <input className="h-11 border border-rule bg-paper px-3 outline-none" name="name" />
+            <input
+              className="h-11 border border-rule bg-paper px-3 outline-none placeholder:text-ink-soft/55"
+              name="name"
+              placeholder={copy.namePlaceholder}
+            />
           </label>
-          <label className="grid gap-2 text-sm text-ink">
+          <label className="grid gap-2 text-sm text-ink md:col-span-2">
             <span className="font-mono text-[11px] uppercase tracking-meta text-ink-soft">
               {copy.phone}
             </span>
-            <input
-              className="h-11 border border-rule bg-paper px-3 outline-none"
-              name="phone"
-              required
-            />
+            <div className="grid gap-3 md:grid-cols-[minmax(180px,0.36fr)_1fr]">
+              <select
+                aria-label={copy.phoneCountry}
+                className="h-11 border border-rule bg-paper px-3 text-ink-soft outline-none"
+                name="countryIso"
+                onChange={(event) => setSelectedCountryIso(event.target.value)}
+                value={selectedCountryIso}
+              >
+                {phoneCountries.map((country) => (
+                  <option key={country.iso} value={country.iso}>
+                    {country.callingCode} {country.name}
+                  </option>
+                ))}
+              </select>
+              <input
+                className="h-11 border border-rule bg-paper px-3 outline-none placeholder:text-ink-soft/55"
+                name="phone"
+                pattern={selectedCountry.pattern}
+                placeholder={selectedCountry.placeholder}
+                required
+                title={`${selectedCountry.callingCode} ${selectedCountry.placeholder}`}
+              />
+            </div>
           </label>
         </div>
         <label className="grid gap-2 text-sm text-ink">
@@ -85,8 +116,9 @@ export function JournalSubmissionForm({ locale }: Readonly<{ locale: Locale }>) 
             {copy.story}
           </span>
           <textarea
-            className="min-h-40 resize-y border border-rule bg-paper p-3 outline-none"
+            className="min-h-40 resize-y border border-rule bg-paper p-3 outline-none placeholder:text-ink-soft/55"
             name="story"
+            placeholder={copy.storyPlaceholder}
             required
           />
         </label>

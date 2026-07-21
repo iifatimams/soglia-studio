@@ -23,6 +23,7 @@ Create the first customer-facing storefront experience without connecting paymen
 - Product-page add-ons, including paid vase add-on and free message-card option.
 - Checkout preview page.
 - Journal/community page with local submission storage and local published-note display.
+- Journal phone field with country-code selection, GCC numbers first, and country-specific placeholders.
 - Private launch loyalty page.
 - Local loyalty-card nomination form.
 - Dynamic metadata for major pages.
@@ -65,6 +66,7 @@ Journal moderation is not implemented yet. Submitted notes display immediately i
 - Storefront route tree now supports English and Arabic.
 - Navigation includes shop, journal, loyalty, language switch, and bag.
 - Secondary navigation sits inside a compact menu to avoid crowding the header.
+- Header dropdowns use custom buttons, not native disclosure markers, so no stray browser arrows appear between controls.
 - Arabic surfaces use `سوغليا` for the brand name where text is localized.
 - Product cards use Soglia editorial plate styling.
 - Arabic product plates use `س.` instead of `S.`.
@@ -97,6 +99,7 @@ corepack pnpm build
 - Continue from bag to checkout preview.
 - Switch from `/en` to `/ar` and confirm the bag count does not reset.
 - Submit a journal note. The success message should appear and the note should render on the page.
+- Change the journal phone country code. The phone placeholder should update, with UAE showing `5x-xxxxxxx`.
 - Loyalty page contact action should go to `/contact`, not `/journal`.
 - Loyalty cardholders can enter a card ID and nominee details in the local nomination form.
 - Loyalty page loads and does not expose cobalt as a public storefront color.
