@@ -16,8 +16,9 @@ Create the catalog foundation for Soglia products before inventory, BOM, checkou
 - SQL migration for catalog tables and enums.
 - Seed fixture data for launch catalog decisions.
 - Read-only API endpoints for catalog collections and products.
-- Admin catalog overview at `/catalog`.
-- Admin product draft form shell.
+- Shopify-like admin catalog manager at `/catalog`.
+- Local product create, edit, duplicate, archive, publish, reset, search, and filter flows.
+- Local variant/size editing for bouquet and bunch pricing.
 - Storefront catalog connected to the shared catalog fixture.
 - Product sizes and stem counts on product cards and product pages.
 - English SEO title and description per product, with Arabic fields also required in the data model.
@@ -25,7 +26,7 @@ Create the catalog foundation for Soglia products before inventory, BOM, checkou
 
 ## Excluded
 
-- Authenticated admin writes.
+- Authenticated database writes.
 - Product image uploads.
 - Real database-backed catalog reads.
 - Inventory stock blocking.
@@ -74,13 +75,18 @@ These use shared fixture data until the first real database connection is config
 ## UI Changes
 
 - Admin home links to the catalog surface.
-- Admin catalog shows:
+- Admin catalog supports:
   - Published product count.
   - Draft product count.
-  - Variant/size count.
-  - Launch collections.
-  - Products with English/Arabic names, status, availability label, default price, and sizes.
-  - Product draft form shell for the future write flow.
+  - Archived product count.
+  - Product search and filters.
+  - Product create/edit form.
+  - Product publish, archive, duplicate, save, and reset actions.
+  - English/Arabic names and descriptions.
+  - English SEO title and description.
+  - Status, type, collection, image tone, and availability label controls.
+  - Product variants, prices, default size, and stem counts.
+  - Storefront preview panel.
 - Storefront product detail pages show:
   - SEO metadata from product SEO fields.
   - Style summary.
@@ -124,7 +130,11 @@ corepack pnpm build
 - `/ar/shop` loads published products only.
 - `/en/shop/last-white-orchid` shows sizes and stem counts.
 - `/en/shop/studio-wrap` should not load because it is still draft.
-- Admin `/catalog` loads product and collection overview.
+- Admin `/catalog` loads the product manager.
+- Create a product, edit fields, add a size, save, refresh, and confirm local changes persist.
+- Use search and filters to narrow products.
+- Duplicate a product and confirm the duplicate becomes a draft.
+- Try publishing a product without required bilingual/SEO/default-price fields and confirm publishing is blocked.
 - Admin `/catalog` shows draft products without publishing them to storefront.
 - API `/catalog/products` returns catalog products.
 - API `/catalog/products/last-white-orchid` returns one product.
