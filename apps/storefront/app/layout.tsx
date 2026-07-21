@@ -5,8 +5,12 @@ import "@soglia/ui/styles";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Soglia Studio",
-  description: "Editorial floristry from Muwaileh, Sharjah."
+  title: {
+    default: "Soglia Studio",
+    template: "%s | Soglia Studio"
+  },
+  description: "Editorial floristry from Muwaileh, Sharjah.",
+  metadataBase: new URL("https://soglia.studio")
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
