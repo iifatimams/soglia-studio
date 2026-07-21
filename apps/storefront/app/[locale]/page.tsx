@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const safeLocale = isLocale(locale) ? locale : "en";
 
   return {
-    title: safeLocale === "ar" ? "Soglia Studio الشارقة" : "Soglia Studio Sharjah",
+    title: safeLocale === "ar" ? "سوغليا الشارقة" : "Soglia Studio Sharjah",
     description: dictionary[safeLocale].home.intro
   };
 }

@@ -24,11 +24,13 @@ const storageKey = "soglia-cart-v1";
 
 export function CartProvider({ children }: Readonly<{ children: React.ReactNode }>) {
   const [items, setItems] = useState<CartItem[]>([]);
+  const [hasHydrated, setHasHydrated] = useState(false);
 
   useEffect(() => {
     const stored = window.localStorage.getItem(storageKey);
 
     if (!stored) {
+      setHasHydrated(true);
       return;
     }
 
@@ -37,12 +39,18 @@ export function CartProvider({ children }: Readonly<{ children: React.ReactNode 
       setItems(parsed);
     } catch {
       window.localStorage.removeItem(storageKey);
+    } finally {
+      setHasHydrated(true);
     }
   }, []);
 
   useEffect(() => {
+    if (!hasHydrated) {
+      return;
+    }
+
     window.localStorage.setItem(storageKey, JSON.stringify(items));
-  }, [items]);
+  }, [hasHydrated, items]);
 
   const value = useMemo<CartContextValue>(() => {
     const count = items.reduce((sum, item) => sum + item.quantity, 0);

@@ -49,15 +49,19 @@ export const dictionary = {
       title: "The journal",
       intro:
         "Write about the bouquet you received, the flowers you want, or a threshold worth marking.",
+      published: "Published notes",
+      empty: "No notes have been published here yet.",
+      anonymousName: "Anonymous",
       name: "Name",
       phone: "Phone",
       anonymous: "Publish anonymously",
       story: "Your note",
       submit: "Send for review",
-      success: "Received. The studio will review it before anything appears."
+      success: "Published here for now. The moderation workflow comes later."
     },
     loyalty: {
       title: "By invitation",
+      eyebrow: "Soglia · private",
       intro:
         "The launch loyalty card starts privately. A small first circle receives cards, and each cardholder may nominate one person.",
       cta: "Ask about your card"
@@ -84,7 +88,7 @@ export const dictionary = {
       bag: "السلة"
     },
     home: {
-      eyebrow: "Soglia · العدد 01 · الشارقة",
+      eyebrow: "سوغليا · العدد 01 · الشارقة",
       title: "آخر أوركيد أبيض هذا الأسبوع.",
       intro:
         "زهور بطابع تحريري للحظات التي تصل إلى الباب. باقات جاهزة، ربطات ورد، ورق، بطاقات، مزهريات، وبطاقة ولاء خاصة بالإطلاق.",
@@ -113,15 +117,19 @@ export const dictionary = {
     journal: {
       title: "المجلة",
       intro: "اكتبي عن الباقة التي وصلتك، الزهور التي تتمنينها، أو لحظة تستحق العلامة.",
+      published: "ملاحظات منشورة",
+      empty: "لا توجد ملاحظات منشورة هنا بعد.",
+      anonymousName: "بدون اسم",
       name: "الاسم",
       phone: "رقم الهاتف",
       anonymous: "النشر بدون اسم",
       story: "النص",
       submit: "إرسال للمراجعة",
-      success: "وصلت. سيراجعها الاستوديو قبل النشر."
+      success: "نُشرت هنا الآن. نظام المراجعة سيأتي لاحقا."
     },
     loyalty: {
       title: "بدعوة",
+      eyebrow: "سوغليا · خاص",
       intro:
         "بطاقة الولاء تبدأ بشكل خاص. دائرة صغيرة تحصل على البطاقات أولا، وكل حاملة بطاقة تستطيع ترشيح شخص واحد.",
       cta: "اسألي عن بطاقتك"

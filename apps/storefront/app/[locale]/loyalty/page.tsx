@@ -24,9 +24,7 @@ export default async function LoyaltyPage({ params }: PageProps) {
   return (
     <main className="mx-auto grid max-w-brand gap-10 px-5 py-10 md:grid-cols-[1fr_0.9fr] md:px-8">
       <section className="border-t border-ink pt-5">
-        <p className="font-mono text-[11px] uppercase tracking-meta text-oxblood">
-          Soglia · private
-        </p>
+        <p className="font-mono text-[11px] uppercase tracking-meta text-oxblood">{copy.eyebrow}</p>
         <h1 className="mt-8 font-display text-6xl leading-none tracking-mark text-ink">
           {copy.title}
         </h1>

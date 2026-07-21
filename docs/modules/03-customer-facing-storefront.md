@@ -19,7 +19,7 @@ Create the first customer-facing storefront experience without connecting paymen
 - Cart drawer with local browser storage.
 - Add-to-cart behavior for mock products.
 - Checkout preview page.
-- Journal/community page with local submission storage.
+- Journal/community page with local submission storage and local published-note display.
 - Private launch loyalty page.
 - Dynamic metadata for major pages.
 - `robots.ts`.
@@ -52,13 +52,16 @@ None. Products are typed mock data until the catalog module.
 
 None. Journal submissions and cart data are local-only in this module.
 
+Journal moderation is not implemented yet. Submitted notes display immediately in the local browser until the content module adds founder review, database storage, and publishing controls.
+
 ## UI Changes
 
 - Storefront route tree now supports English and Arabic.
 - Navigation includes shop, journal, loyalty, language switch, and bag.
 - Product cards use Soglia editorial plate styling.
 - The cart drawer stores selected mock products in `localStorage`.
-- Journal submissions store pending entries in `localStorage`.
+- The cart no longer overwrites stored items when switching between `/en` and `/ar`.
+- Journal submissions store entries in `localStorage` and render on the journal page.
 
 ## Validation Commands
 
@@ -79,7 +82,8 @@ corepack pnpm build
 - Add a product to the bag and refresh. The bag should keep the item.
 - Remove an item from the bag.
 - Continue from bag to checkout preview.
-- Submit a journal note. The success message should appear.
+- Switch from `/en` to `/ar` and confirm the bag count does not reset.
+- Submit a journal note. The success message should appear and the note should render on the page.
 - Loyalty page loads and does not expose cobalt as a public storefront color.
 
 ## Commit Message
