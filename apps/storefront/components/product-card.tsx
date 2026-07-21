@@ -1,13 +1,14 @@
 import Link from "next/link";
 import type { Locale } from "@soglia/types";
 import type { Product } from "../lib/catalog";
-import { formatPrice } from "../lib/catalog";
+import { formatPrice, getDefaultVariant, getProductPrice } from "../lib/catalog";
 import { dictionary } from "../lib/i18n";
 import { AddToCartButton } from "./add-to-cart-button";
 import { ProductPlate } from "./product-plate";
 
 export function ProductCard({ locale, product }: Readonly<{ locale: Locale; product: Product }>) {
   const copy = dictionary[locale].shop;
+  const defaultVariant = getDefaultVariant(product);
 
   return (
     <article className="grid gap-4 border-t border-rule pt-4">
@@ -21,9 +22,14 @@ export function ProductCard({ locale, product }: Readonly<{ locale: Locale; prod
             <p className="mt-2 text-sm leading-6 text-ink-soft">{product.description[locale]}</p>
           </div>
           <p className="font-mono text-xs uppercase tracking-meta text-oxblood">
-            {formatPrice(product.price, locale)}
+            {formatPrice(getProductPrice(product), locale)}
           </p>
         </div>
+        {defaultVariant?.stemCount ? (
+          <p className="font-mono text-[11px] uppercase tracking-meta text-ink-soft">
+            {defaultVariant.stemCount} {locale === "ar" ? "سيقان" : "stems"}
+          </p>
+        ) : null}
         <div className="flex items-center gap-2">
           <AddToCartButton locale={locale} product={product} />
           <Link

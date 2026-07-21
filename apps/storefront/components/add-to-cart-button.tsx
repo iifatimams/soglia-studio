@@ -3,6 +3,7 @@
 import type { Locale } from "@soglia/types";
 import { Button } from "@soglia/ui";
 import type { Product } from "../lib/catalog";
+import { getProductPrice } from "../lib/catalog";
 import { dictionary } from "../lib/i18n";
 import { useCart } from "./cart-context";
 
@@ -20,7 +21,7 @@ export function AddToCartButton({
         addItem({
           slug: product.slug,
           name: product.name[locale],
-          price: product.price
+          price: getProductPrice(product)
         })
       }
     >

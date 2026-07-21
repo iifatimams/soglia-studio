@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Monogram, Wordmark } from "@soglia/ui";
 
 export default function AdminHome() {
@@ -11,6 +12,14 @@ export default function AdminHome() {
       <p className="mt-6 max-w-xl text-base leading-7 text-ink">
         Foundation shell for dashboard, POS, operations, inventory, and reporting.
       </p>
+      <div className="mt-8">
+        <Link
+          className="inline-flex h-11 items-center justify-center border border-ink px-5 text-sm text-ink hover:bg-bone"
+          href="/catalog"
+        >
+          Open catalog
+        </Link>
+      </div>
     </main>
   );
 }

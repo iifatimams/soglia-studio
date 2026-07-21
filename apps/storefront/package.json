@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@soglia/config": "workspace:*",
+    "@soglia/db": "workspace:*",
     "@soglia/ui": "workspace:*",
     "next": "^15.1.4",
     "react": "^19.0.0",

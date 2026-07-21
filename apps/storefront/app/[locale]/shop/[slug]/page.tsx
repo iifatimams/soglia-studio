@@ -4,7 +4,13 @@ import type { Metadata } from "next";
 import type { Locale } from "@soglia/types";
 import { AddToCartButton } from "../../../../components/add-to-cart-button";
 import { ProductPlate } from "../../../../components/product-plate";
-import { formatPrice, getProduct, getProductAddOns, products } from "../../../../lib/catalog";
+import {
+  formatPrice,
+  getProduct,
+  getProductAddOns,
+  getProductPrice,
+  products
+} from "../../../../lib/catalog";
 import { dictionary, isLocale, locales } from "../../../../lib/i18n";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
@@ -23,8 +29,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: product.name[safeLocale],
-    description: product.description[safeLocale]
+    title: product.seoTitle[safeLocale],
+    description: product.seoDescription[safeLocale]
   };
 }
 
@@ -58,11 +64,38 @@ export default async function ProductPage({ params }: PageProps) {
           {product.name[locale]}
         </h1>
         <p className="mt-5 font-mono text-xs uppercase tracking-meta text-oxblood">
-          {formatPrice(product.price, locale)}
+          {formatPrice(getProductPrice(product), locale)}
         </p>
         <p className="mt-8 max-w-2xl text-lg leading-8 text-ink-soft">
+          {product.styleSummary[locale]}
+        </p>
+        <p className="mt-5 max-w-2xl text-base leading-7 text-ink-soft">
           {product.description[locale]}
         </p>
+        <div className="mt-10 border-t border-rule pt-7">
+          <h2 className="font-mono text-xs uppercase tracking-meta text-ink">
+            {locale === "ar" ? "المقاسات" : "Sizes"}
+          </h2>
+          <div className="mt-4 grid gap-3 md:grid-cols-2">
+            {product.variants.map((variant) => (
+              <div className="border border-rule bg-bone p-4" key={variant.slug}>
+                <div className="flex items-baseline justify-between gap-4">
+                  <p className="font-display text-2xl leading-none text-ink">
+                    {variant.name[locale]}
+                  </p>
+                  <p className="font-mono text-[11px] uppercase tracking-meta text-oxblood">
+                    {formatPrice(variant.price, locale)}
+                  </p>
+                </div>
+                {variant.stemCount ? (
+                  <p className="mt-3 font-mono text-[11px] uppercase tracking-meta text-ink-soft">
+                    {variant.stemCount} {locale === "ar" ? "سيقان" : "stems"}
+                  </p>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="mt-10 grid gap-8 border-t border-rule pt-7 md:grid-cols-2">
           <div>
             <h2 className="font-mono text-xs uppercase tracking-meta text-ink">{copy.included}</h2>

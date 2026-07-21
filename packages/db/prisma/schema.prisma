@@ -7,3 +7,161 @@ datasource db {
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_DATABASE_URL")
 }
+
+enum ProductKind {
+  BOUQUET
+  BUNCH
+  VASE
+  CARD
+  WRAP
+  RIBBON
+  OASIS
+  CUSTOM_REQUEST
+}
+
+enum ProductStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum AvailabilityLabel {
+  AVAILABLE
+  MADE_TO_ORDER
+  LIMITED
+  COMING_SOON
+}
+
+enum ProductImageTone {
+  ORCHID
+  CARNATION
+  VASE
+  PAPER
+  CARD
+  OASIS
+}
+
+model Product {
+  id               String             @id @default(uuid()) @db.Uuid
+  slug             String             @unique
+  kind             ProductKind
+  status           ProductStatus      @default(DRAFT)
+  availability     AvailabilityLabel  @default(MADE_TO_ORDER)
+  imageTone        ProductImageTone   @default(ORCHID)
+  nameEn           String
+  nameAr           String
+  descriptionEn    String
+  descriptionAr    String
+  seoTitleEn       String
+  seoTitleAr       String
+  seoDescriptionEn String
+  seoDescriptionAr String
+  styleSummaryEn   String
+  styleSummaryAr   String
+  noteEn           String
+  noteAr           String
+  includedEn       String[]
+  includedAr       String[]
+  isLimited        Boolean            @default(false)
+  isFeatured       Boolean            @default(false)
+  publishedAt      DateTime?          @db.Timestamptz(6)
+  archivedAt       DateTime?          @db.Timestamptz(6)
+  createdAt        DateTime           @default(now()) @db.Timestamptz(6)
+  updatedAt        DateTime           @updatedAt @db.Timestamptz(6)
+
+  variants         ProductVariant[]
+  images           ProductImage[]
+  categoryId       String?            @db.Uuid
+  category         Category?          @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  collections      ProductCollection[]
+
+  @@index([status, kind])
+  @@index([availability])
+  @@index([categoryId])
+  @@map("products")
+}
+
+model ProductVariant {
+  id          String   @id @default(uuid()) @db.Uuid
+  productId   String   @db.Uuid
+  slug        String
+  nameEn      String
+  nameAr      String
+  priceAed    Int
+  stemCount   Int?
+  sortOrder   Int      @default(0)
+  isDefault   Boolean  @default(false)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
+
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([productId, slug])
+  @@index([productId, isDefault])
+  @@map("product_variants")
+}
+
+model ProductImage {
+  id        String   @id @default(uuid()) @db.Uuid
+  productId String   @db.Uuid
+  url       String
+  altEn     String
+  altAr     String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @db.Timestamptz(6)
+
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId, sortOrder])
+  @@map("product_images")
+}
+
+model Category {
+  id            String    @id @default(uuid()) @db.Uuid
+  slug          String    @unique
+  nameEn        String
+  nameAr        String
+  descriptionEn String
+  descriptionAr String
+  sortOrder     Int       @default(0)
+  createdAt     DateTime  @default(now()) @db.Timestamptz(6)
+  updatedAt     DateTime  @updatedAt @db.Timestamptz(6)
+  archivedAt    DateTime? @db.Timestamptz(6)
+
+  products      Product[]
+
+  @@map("categories")
+}
+
+model Collection {
+  id            String              @id @default(uuid()) @db.Uuid
+  slug          String              @unique
+  nameEn        String
+  nameAr        String
+  descriptionEn String
+  descriptionAr String
+  sortOrder     Int                 @default(0)
+  createdAt     DateTime            @default(now()) @db.Timestamptz(6)
+  updatedAt     DateTime            @updatedAt @db.Timestamptz(6)
+  archivedAt    DateTime?           @db.Timestamptz(6)
+
+  products      ProductCollection[]
+
+  @@map("collections")
+}
+
+model ProductCollection {
+  productId    String     @db.Uuid
+  collectionId String     @db.Uuid
+  sortOrder    Int        @default(0)
+  createdAt    DateTime   @default(now()) @db.Timestamptz(6)
+
+  product      Product    @relation(fields: [productId], references: [id], onDelete: Cascade)
+  collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+
+  @@id([productId, collectionId])
+  @@index([collectionId, sortOrder])
+  @@map("product_collections")
+}
